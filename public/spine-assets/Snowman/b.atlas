@@ -1,0 +1,239 @@
+b.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+scale:0.5
+L_sitck_bow
+bounds:957,985,43,48
+offsets:0,0,45,48
+rotate:90
+Left_hand _stick
+bounds:1039,1493,128,325
+offsets:0,0,130,325
+rotate:90
+R_sitck_bow
+bounds:1091,591,42,44
+offsets:0,0,42,45
+rotate:90
+bg
+bounds:2,1012,513,513
+body
+bounds:2,196,406,306
+offsets:0,0,406,307
+chest
+bounds:984,1162,184,115
+chest_shadow
+bounds:725,529,171,48
+offsets:1,1,173,50
+eyebrows
+bounds:646,176,67,21
+rotate:90
+eyes
+bounds:1020,603,69,30
+face
+bounds:1929,1913,133,102
+rotate:90
+floating_muffler
+bounds:749,751,171,59
+frame effect/light_sweep_00
+bounds:1010,1504,27,27
+offsets:0,0,257,257
+frame effect/light_sweep_01
+bounds:1537,1229,48,48
+offsets:0,0,257,257
+frame effect/light_sweep_02
+bounds:1484,1061,68,68
+offsets:0,0,257,257
+frame effect/light_sweep_03
+bounds:1033,798,89,89
+offsets:0,0,257,257
+frame effect/light_sweep_04
+bounds:1366,1512,109,109
+offsets:0,0,257,257
+frame effect/light_sweep_05
+bounds:1437,1355,130,130
+offsets:0,0,257,257
+frame effect/light_sweep_06
+bounds:1637,1473,151,151
+offsets:0,0,257,257
+frame effect/light_sweep_07
+bounds:749,812,171,171
+offsets:0,0,257,257
+frame effect/light_sweep_08
+bounds:2,2,192,192
+offsets:0,0,257,257
+frame effect/light_sweep_09
+bounds:1010,1279,212,212
+offsets:0,0,257,257
+frame effect/light_sweep_10
+bounds:490,518,233,233
+offsets:0,0,257,257
+frame effect/light_sweep_11
+bounds:669,4,253,253
+offsets:0,0,257,257
+frame effect/light_sweep_12
+bounds:1468,1626,257,257
+frame effect/light_sweep_13
+bounds:1727,1626,257,257
+frame effect/light_sweep_14
+bounds:410,245,257,257
+frame effect/light_sweep_15
+bounds:490,753,257,257
+frame effect/light_sweep_16
+bounds:669,259,257,257
+frame effect/light_sweep_17
+bounds:517,1268,257,257
+frame effect/light_sweep_18
+bounds:517,1014,252,252
+offsets:5,5,257,257
+frame effect/light_sweep_19
+bounds:776,1299,232,232
+offsets:25,25,257,257
+frame effect/light_sweep_20
+bounds:1224,1280,211,211
+offsets:46,46,257,257
+frame effect/light_sweep_21
+bounds:196,3,191,191
+offsets:66,66,257,257
+frame effect/light_sweep_22
+bounds:725,579,170,170
+offsets:87,87,257,257
+frame effect/light_sweep_23
+bounds:1790,1474,150,150
+offsets:107,107,257,257
+frame effect/light_sweep_24
+bounds:1170,1148,129,129
+offsets:128,128,257,257
+frame effect/light_sweep_25
+bounds:1301,1169,109,109
+offsets:148,148,257,257
+frame effect/light_sweep_26
+bounds:1049,708,88,88
+offsets:169,169,257,257
+frame effect/light_sweep_27
+bounds:1484,992,67,67
+offsets:190,190,257,257
+frame effect/light_sweep_28
+bounds:1020,554,47,47
+offsets:210,210,257,257
+frame effect/light_sweep_29
+bounds:1982,1885,26,26
+offsets:231,231,257,257
+front_muffler
+bounds:1412,1204,73,123
+offsets:0,0,73,132
+rotate:90
+golden_frame
+bounds:524,1533,513,513
+green_front_ball
+bounds:897,586,62,77
+rotate:90
+hat
+bounds:771,985,184,170
+left_cherry_leaf
+bounds:1477,1487,137,158
+rotate:90
+left_gifts
+bounds:776,1157,206,140
+lower_body
+bounds:410,29,234,214
+offsets:0,0,234,215
+nose
+bounds:1929,1885,51,26
+orange_candy_stick
+bounds:1569,1359,37,126
+outer_leaf
+bounds:1437,1279,148,74
+particle
+bounds:1039,1623,427,423
+pink_candy_stick
+bounds:922,796,109,187
+offsets:0,1,109,188
+red_ball
+bounds:898,528,56,63
+offsets:0,0,56,68
+rotate:90
+right_hand
+bounds:1233,929,71,85
+offsets:0,6,81,93
+rotate:90
+snow_base
+bounds:1468,1885,459,161
+offsets:0,0,459,162
+snow_floor
+bounds:2,504,486,506
+snowfall/snowfall_00
+bounds:1942,1499,125,71
+rotate:90
+snowfall/snowfall_01
+bounds:1608,1400,125,71
+snowfall/snowfall_02
+bounds:1608,1327,125,71
+snowfall/snowfall_03
+bounds:1735,1346,125,71
+rotate:90
+snowfall/snowfall_04
+bounds:1808,1401,125,71
+snowfall/snowfall_05
+bounds:1808,1328,125,71
+snowfall/snowfall_06
+bounds:1412,1131,125,71
+snowfall/snowfall_07
+bounds:922,723,125,71
+snowfall/snowfall_08
+bounds:897,650,125,71
+snowfall/snowfall_09
+bounds:957,1030,125,71
+rotate:90
+snowfall/snowfall_10
+bounds:1030,1089,125,71
+snowfall/snowfall_11
+bounds:1030,1016,125,71
+snowfall/snowfall_12
+bounds:1157,1075,125,71
+snowfall/snowfall_13
+bounds:1157,1002,125,71
+snowfall/snowfall_14
+bounds:1033,889,125,71
+rotate:90
+snowfall/snowfall_15
+bounds:1587,1254,125,71
+snowfall/snowfall_16
+bounds:1106,929,125,71
+snowfall/snowfall_17
+bounds:1124,802,125,71
+rotate:90
+snowfall/snowfall_18
+bounds:1197,802,125,71
+rotate:90
+snowfall/snowfall_19
+bounds:1270,802,125,71
+rotate:90
+snowfall/snowfall_20
+bounds:1139,729,125,71
+snowfall/snowfall_21
+bounds:1266,729,125,71
+snowfall/snowfall_22
+bounds:1024,635,125,71
+snowfall/snowfall_23
+bounds:1151,656,125,71
+snowfall/snowfall_24
+bounds:1278,656,125,71
+snowfall/snowfall_25
+bounds:1151,583,125,71
+snowfall/snowfall_26
+bounds:1278,583,125,71
+snowfall/snowfall_27
+bounds:1284,1021,125,71
+rotate:90
+snowfall/snowfall_28
+bounds:1357,1058,125,71
+snowfall/snowfall_29
+bounds:1357,985,125,71
+star
+bounds:2,1527,520,519
+offsets:240,240,1000,1000
+stick_grass
+bounds:976,570,78,42
+offsets:0,1,78,44
+rotate:90

@@ -1,0 +1,47 @@
+bag.png
+size:1206,550
+filter:Linear,Linear
+pma:true
+scale:0.5
+Back_Bag
+bounds:2,19,254,123
+Back_Bag's Outer Glow
+bounds:448,19,288,158
+Bag
+bounds:448,179,409,369
+Bag's Outer Glow
+bounds:2,144,444,404
+C1
+bounds:374,55,87,69
+rotate:90
+C1's Drop Shadow
+bounds:1089,118,105,83
+offsets:1,1,107,85
+C1's Outer Glow
+bounds:859,98,125,103
+offsets:1,1,127,105
+C2
+bounds:949,4,92,83
+rotate:90
+C2's Drop Shadow
+bounds:986,109,101,92
+offsets:1,1,103,94
+C2's Outer Glow
+bounds:738,56,121,112
+offsets:1,1,123,114
+rotate:90
+C3
+bounds:1034,21,85,86
+C3's Drop Shadow
+bounds:852,2,94,95
+offsets:1,1,96,97
+rotate:90
+C3's Outer Glow
+bounds:258,27,114,115
+offsets:1,1,116,117
+particles
+bounds:1121,34,82,70
+offsets:1,0,84,71
+rotate:90
+yellow
+bounds:859,203,345,345
