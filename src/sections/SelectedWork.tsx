@@ -19,6 +19,8 @@ const filters: WorkFilter[] = [
   { label: "Transitions", value: "transitions" },
 ];
 
+const showWorkFilters = false;
+
 const SpinePreview = lazy(async () => {
   const module = await import("../components/SpinePreview");
   return { default: module.SpinePreview };
@@ -162,19 +164,22 @@ export function SelectedWork() {
         assets, and VFX.
       </p>
       <div className="work-gallery section-reveal">
-        <div className="work-filters" aria-label="Work filters">
-          {filters.map((filter) => (
-            <button
-              aria-pressed={filter.value === activeFilter}
-              className="filter-chip"
-              key={filter.value}
-              onClick={() => handleFilterSelect(filter.value)}
-              type="button"
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
+        {/* Filter chips temporarily hidden. Restore when category filtering is needed. */}
+        {showWorkFilters && (
+          <div className="work-filters" aria-label="Work filters">
+            {filters.map((filter) => (
+              <button
+                aria-pressed={filter.value === activeFilter}
+                className="filter-chip"
+                key={filter.value}
+                onClick={() => handleFilterSelect(filter.value)}
+                type="button"
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="work-card-grid" aria-label="Selected Spine work items">
           {filteredItems.map((item) => (
