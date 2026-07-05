@@ -1,12 +1,18 @@
-import { HeroScene } from "../scenes/HeroScene";
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
+
+const HeroScene = lazy(async () => {
+  const module = await import("../scenes/HeroScene");
+  return { default: module.HeroScene };
+});
 
 export function Hero() {
   const [portraitFailed, setPortraitFailed] = useState(false);
 
   return (
     <section className="section hero-section" id="hero" aria-labelledby="hero-title">
-      <HeroScene />
+      <Suspense fallback={null}>
+        <HeroScene />
+      </Suspense>
       <div className="hero-scrim" aria-hidden="true" />
       <div className="hero-content hero-layout">
         <div className="hero-copy-block">
@@ -50,7 +56,7 @@ export function Hero() {
             <span aria-hidden="true">GS</span>
           ) : (
             <img
-              src="/hero-portrait.png"
+              src="/hero-portrait.webp"
               alt="Guneet Singh 2D Spine Animator portrait"
               onError={() => setPortraitFailed(true)}
             />

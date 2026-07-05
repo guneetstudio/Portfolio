@@ -3,6 +3,7 @@ import { AnimationTabs } from "../components/AnimationTabs";
 import { SectionHeader } from "../components/SectionHeader";
 import { WorkCard } from "../components/WorkCard";
 import { portfolioItems, type PortfolioItem } from "../data/portfolioItems.generated";
+import { prefetchSpineAssets } from "../utils/prefetchSpineAssets";
 
 type WorkFilter = {
   label: string;
@@ -22,6 +23,10 @@ const SpinePreview = lazy(async () => {
   const module = await import("../components/SpinePreview");
   return { default: module.SpinePreview };
 });
+
+function prefetchSpinePreviewModule() {
+  void import("../components/SpinePreview");
+}
 
 function SpinePreviewLoading() {
   return (
@@ -71,8 +76,14 @@ export function SelectedWork() {
   const handleItemSelect = (item: PortfolioItem) => {
     lastFocusedElementRef.current =
       document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    prefetchSpineAssets(item);
+    prefetchSpinePreviewModule();
     setActiveItem(item);
     setActiveAnimation(item.animations[0] ?? null);
+  };
+  const handleItemPrefetch = (item: PortfolioItem) => {
+    prefetchSpineAssets(item);
+    prefetchSpinePreviewModule();
   };
   const navigateModalItem = (direction: -1 | 1) => {
     if (!activeItem) return;
@@ -96,6 +107,18 @@ export function SelectedWork() {
       lastFocusedElementRef.current = null;
     });
   };
+
+  useEffect(() => {
+    if (!activeItem) return;
+
+    const currentIndex = portfolioItems.findIndex((item) => item.id === activeItem.id);
+    if (currentIndex === -1) return;
+
+    prefetchSpineAssets(portfolioItems[(currentIndex + 1) % portfolioItems.length]);
+    prefetchSpineAssets(
+      portfolioItems[(currentIndex - 1 + portfolioItems.length) % portfolioItems.length],
+    );
+  }, [activeItem]);
 
   useEffect(() => {
     if (!activeItem) return;
@@ -159,6 +182,7 @@ export function SelectedWork() {
               isActive={item.id === activeItem?.id}
               item={item}
               key={item.id}
+              onPrefetch={handleItemPrefetch}
               onSelect={handleItemSelect}
             />
           ))}

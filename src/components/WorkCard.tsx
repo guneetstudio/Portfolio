@@ -4,19 +4,25 @@ import type { PortfolioItem } from "../data/portfolioItems.generated";
 type WorkCardProps = {
   isActive: boolean;
   item: PortfolioItem;
+  onPrefetch: (item: PortfolioItem) => void;
   onSelect: (item: PortfolioItem) => void;
 };
 
-export function WorkCard({ isActive, item, onSelect }: WorkCardProps) {
+export function WorkCard({ isActive, item, onPrefetch, onSelect }: WorkCardProps) {
   const [thumbnailFailed, setThumbnailFailed] = useState(false);
   const showThumbnail = item.thumbnail && !thumbnailFailed;
+  const handlePrefetch = () => onPrefetch(item);
 
   return (
     <button
       aria-label={`Reveal motion preview for ${item.title}`}
       aria-pressed={isActive}
       className="work-card-button"
+      onFocus={handlePrefetch}
       onClick={() => onSelect(item)}
+      onPointerDown={handlePrefetch}
+      onPointerEnter={handlePrefetch}
+      onTouchStart={handlePrefetch}
       type="button"
     >
       <span className="work-thumb" aria-hidden="true">

@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const sourceRoot = "/Users/guneet/SpinePortfolioExports";
@@ -65,6 +65,30 @@ function findThumbnail(files) {
   }
 
   return null;
+}
+
+function parseAtlasPages(atlasText) {
+  const lines = atlasText.split(/\r?\n/);
+  const pages = [];
+
+  lines.forEach((line, index) => {
+    const current = line.trim();
+    const next = lines[index + 1]?.trim() ?? "";
+
+    if (current && !current.includes(":") && next.startsWith("size:")) {
+      pages.push(current);
+    }
+  });
+
+  return pages;
+}
+
+async function readAtlasPages(atlasPath) {
+  try {
+    return parseAtlasPages(await readFile(atlasPath, "utf8"));
+  } catch {
+    return [];
+  }
 }
 
 function guessCategory(folderName, animations) {
@@ -207,23 +231,17 @@ async function main() {
       .filter((fileName) => assetExtensions.has(path.extname(fileName).toLowerCase()))
       .sort(sortByName);
 
-    await mkdir(targetFolder, { recursive: true });
-
-    for (const fileName of files) {
-      await copyFile(path.join(folderPath, fileName), path.join(targetFolder, fileName));
-    }
-
     const jsonFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".json");
     const atlasFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".atlas");
     const pngFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".png");
     const webpFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".webp");
     const thumbnailFile = findThumbnail(files);
-    const textureFiles = [...pngFiles, ...webpFiles]
-      .filter((fileName) => fileName !== thumbnailFile)
-      .sort(sortByName);
-
     const jsonFile = jsonFiles[0] ?? null;
     const atlasFile = atlasFiles[0] ?? null;
+    const textureCandidates = [...pngFiles, ...webpFiles]
+      .filter((fileName) => fileName !== thumbnailFile)
+      .sort(sortByName);
+    let textureFiles = textureCandidates;
     let animations = [];
 
     if (jsonFile) {
@@ -235,9 +253,35 @@ async function main() {
       }
     }
 
+    if (atlasFile) {
+      const atlasPages = await readAtlasPages(path.join(folderPath, atlasFile));
+      if (atlasPages.length > 0) {
+        const filesByName = new Map(files.map((fileName) => [fileName, fileName]));
+        textureFiles = atlasPages
+          .map((pageName) => filesByName.get(pageName))
+          .filter(Boolean);
+
+        const missingPages = atlasPages.filter((pageName) => !filesByName.has(pageName));
+        if (missingPages.length > 0) {
+          warnings.push(`${folderName}: atlas references missing texture pages: ${missingPages.join(", ")}`);
+        }
+      }
+    }
+
     if (!jsonFile) warnings.push(`${folderName}: missing Spine JSON file`);
     if (!atlasFile) warnings.push(`${folderName}: missing atlas file`);
     if (textureFiles.length === 0) warnings.push(`${folderName}: missing PNG/WebP texture files`);
+
+    await rm(targetFolder, { recursive: true, force: true });
+    await mkdir(targetFolder, { recursive: true });
+
+    const filesToCopy = new Set(
+      [jsonFile, atlasFile, thumbnailFile, ...textureFiles].filter(Boolean),
+    );
+
+    for (const fileName of filesToCopy) {
+      await copyFile(path.join(folderPath, fileName), path.join(targetFolder, fileName));
+    }
 
     if (jsonFile) summary.foldersWithJson.push(folderName);
     if (atlasFile) summary.foldersWithAtlas.push(folderName);

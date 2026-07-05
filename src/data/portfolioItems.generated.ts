@@ -101,7 +101,6 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/ChocolateBurstMultiplier/multiplier.json",
       "atlas": "/spine-assets/ChocolateBurstMultiplier/multiplier.atlas",
       "textures": [
-        "/spine-assets/ChocolateBurstMultiplier/multiplier_2.png",
         "/spine-assets/ChocolateBurstMultiplier/multiplier.png"
       ]
     },
@@ -125,9 +124,6 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/DiamondScatter/Scatter.json",
       "atlas": "/spine-assets/DiamondScatter/Scatter.atlas",
       "textures": [
-        "/spine-assets/DiamondScatter/Scatter_2.png",
-        "/spine-assets/DiamondScatter/Scatter_3.png",
-        "/spine-assets/DiamondScatter/Scatter_4.png",
         "/spine-assets/DiamondScatter/Scatter.png"
       ]
     },
@@ -174,9 +170,9 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/Dolphin/C_Dolphin.json",
       "atlas": "/spine-assets/Dolphin/C_Dolphin.atlas",
       "textures": [
+        "/spine-assets/Dolphin/C_Dolphin.png",
         "/spine-assets/Dolphin/C_Dolphin_2.png",
-        "/spine-assets/Dolphin/C_Dolphin_3.png",
-        "/spine-assets/Dolphin/C_Dolphin.png"
+        "/spine-assets/Dolphin/C_Dolphin_3.png"
       ]
     },
     "thumbnail": "/spine-assets/Dolphin/thumbnail.webp",
@@ -199,8 +195,8 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/Dragon/Dragon.json",
       "atlas": "/spine-assets/Dragon/Dragon.atlas",
       "textures": [
-        "/spine-assets/Dragon/Dragon_2.png",
-        "/spine-assets/Dragon/Dragon.png"
+        "/spine-assets/Dragon/Dragon.png",
+        "/spine-assets/Dragon/Dragon_2.png"
       ]
     },
     "thumbnail": "/spine-assets/Dragon/thumbnail.webp",
@@ -223,8 +219,8 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/Envelope/envelope.json",
       "atlas": "/spine-assets/Envelope/envelope.atlas",
       "textures": [
-        "/spine-assets/Envelope/envelope_2.png",
-        "/spine-assets/Envelope/envelope.png"
+        "/spine-assets/Envelope/envelope.png",
+        "/spine-assets/Envelope/envelope_2.png"
       ]
     },
     "thumbnail": "/spine-assets/Envelope/thumbnail.webp",
@@ -250,9 +246,9 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/Hamster/a.json",
       "atlas": "/spine-assets/Hamster/a.atlas",
       "textures": [
+        "/spine-assets/Hamster/a.png",
         "/spine-assets/Hamster/a_2.png",
-        "/spine-assets/Hamster/a_3.png",
-        "/spine-assets/Hamster/a.png"
+        "/spine-assets/Hamster/a_3.png"
       ]
     },
     "thumbnail": "/spine-assets/Hamster/thumbnail.webp",
@@ -435,7 +431,7 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/Royals/royals.json",
       "atlas": "/spine-assets/Royals/royals.atlas",
       "textures": [
-        "/spine-assets/Royals/royals.webp"
+        "/spine-assets/Royals/royals.png"
       ]
     },
     "thumbnail": "/spine-assets/Royals/thumbnail.webp",
