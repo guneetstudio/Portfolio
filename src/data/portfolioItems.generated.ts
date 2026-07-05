@@ -75,7 +75,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     "spine": {
       "json": "/spine-assets/Chocolate/chocolate.json",
-      "atlas": "/spine-assets/Chocolate/chocolate.atlas",
+      "atlas": null,
       "textures": [
         "/spine-assets/Chocolate/chocolate.png"
       ]
@@ -338,7 +338,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     "spine": {
       "json": "/spine-assets/Lollipop/lollipop.json",
-      "atlas": "/spine-assets/Lollipop/lollipop.atlas",
+      "atlas": null,
       "textures": [
         "/spine-assets/Lollipop/lollipop.png"
       ]
