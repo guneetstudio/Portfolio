@@ -13,6 +13,11 @@ export function Hero() {
       <Suspense fallback={null}>
         <HeroScene />
       </Suspense>
+      <div className="hero-atmosphere" aria-hidden="true">
+        {Array.from({ length: 14 }, (_, index) => (
+          <span key={index} />
+        ))}
+      </div>
       <div className="hero-scrim" aria-hidden="true" />
       <div className="hero-content hero-layout">
         <div className="hero-copy-block">
@@ -32,8 +37,11 @@ export function Hero() {
             2D Spine Animator for Casino & Slot Games
           </p>
           <p className="hero-copy hero-animate">
-            Production-ready Spine rigs, character animation, UI motion, feature
-            animations, and VFX for iGaming.
+            2D Spine Animator with around 3 years of casino and iGaming
+            experience across 50+ slot, blackjack, and poker-style game projects.
+            Focused on production-ready Spine rigs, character motion, UI animation,
+            feature animations, VFX, export validation, and optimized game-ready
+            assets.
           </p>
           <div className="button-row hero-actions" aria-label="Primary actions">
             <a className="button button-primary hero-animate" href="#selected-work">

@@ -63,6 +63,29 @@ export const portfolioItems: PortfolioItem[] = [
     ]
   },
   {
+    "id": "chocolate",
+    "title": "Chocolate",
+    "sourceFolderName": "Chocolate",
+    "category": "Feature Asset / Prop",
+    "description": "Chocolate feature asset animation with clean timing and presentation.",
+    "tags": [
+      "Spine 2D",
+      "Feature Asset",
+      "Game Ready"
+    ],
+    "spine": {
+      "json": "/spine-assets/Chocolate/chocolate.json",
+      "atlas": "/spine-assets/Chocolate/chocolate.atlas",
+      "textures": [
+        "/spine-assets/Chocolate/chocolate.png"
+      ]
+    },
+    "thumbnail": "/spine-assets/Chocolate/thumbnail.webp",
+    "animations": [
+      "win"
+    ]
+  },
+  {
     "id": "chocolate-burst-multiplier",
     "title": "Chocolate Burst Multiplier",
     "sourceFolderName": "ChocolateBurstMultiplier",
@@ -196,16 +219,12 @@ export const portfolioItems: PortfolioItem[] = [
       "json": "/spine-assets/Envelope/envelope.json",
       "atlas": "/spine-assets/Envelope/envelope.atlas",
       "textures": [
-        "/spine-assets/Envelope/envelope.png",
-        "/spine-assets/Envelope/envelope_2.png"
+        "/spine-assets/Envelope/envelope.png"
       ]
     },
     "thumbnail": "/spine-assets/Envelope/thumbnail.webp",
     "animations": [
-      "animation",
-      "cash_movement",
-      "open_close",
-      "open_close2"
+      "animation"
     ]
   },
   {
@@ -300,6 +319,29 @@ export const portfolioItems: PortfolioItem[] = [
     "thumbnail": "/spine-assets/Lamp/thumbnail.webp",
     "animations": [
       "animation"
+    ]
+  },
+  {
+    "id": "lollipop",
+    "title": "Lollipop",
+    "sourceFolderName": "Lollipop",
+    "category": "Feature Asset / Prop",
+    "description": "Lollipop feature asset animation with clean timing and presentation.",
+    "tags": [
+      "Spine 2D",
+      "Feature Asset",
+      "Game Ready"
+    ],
+    "spine": {
+      "json": "/spine-assets/Lollipop/lollipop.json",
+      "atlas": "/spine-assets/Lollipop/lollipop.atlas",
+      "textures": [
+        "/spine-assets/Lollipop/lollipop.png"
+      ]
+    },
+    "thumbnail": "/spine-assets/Lollipop/thumbnail.webp",
+    "animations": [
+      "win"
     ]
   },
   {

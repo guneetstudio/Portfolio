@@ -154,7 +154,7 @@ export function SelectedWork() {
     >
       <div className="section-glow" aria-hidden="true" />
       <SectionHeader
-        eyebrow="Selected Spine Work"
+        eyebrow="CASINO SLOT SYMBOLS"
         id="selected-work-title"
         title="Selected Spine Work"
       />
@@ -196,8 +196,7 @@ export function SelectedWork() {
 
       {activeItem && (
         <div
-          aria-describedby="work-modal-description"
-          aria-labelledby="work-modal-title"
+          aria-label="Spine animation preview"
           aria-modal="true"
           className="work-modal"
           role="dialog"
@@ -241,16 +240,15 @@ export function SelectedWork() {
                 item={activeItem}
               />
             </Suspense>
-            <div className="work-modal-copy">
-              <p className="modal-now-playing">Now Playing</p>
-              <h3 id="work-modal-title">{activeItem.title}</h3>
-              <p id="work-modal-description">{activeItem.description}</p>
-              <AnimationTabs
-                activeAnimation={activeAnimation}
-                animations={activeItem.animations}
-                onSelect={setActiveAnimation}
-              />
-            </div>
+            {activeItem.animations.length > 1 && (
+              <div className="work-modal-tabs">
+                <AnimationTabs
+                  activeAnimation={activeAnimation}
+                  animations={activeItem.animations}
+                  onSelect={setActiveAnimation}
+                />
+              </div>
+            )}
           </article>
         </div>
       )}

@@ -1,3 +1,4 @@
+import { AnimationTools } from "./sections/AnimationTools";
 import { CompactInfo } from "./sections/CompactInfo";
 import { Hero } from "./sections/Hero";
 import { SelectedWork } from "./sections/SelectedWork";
@@ -14,6 +15,7 @@ export default function App() {
     <main className="site-shell">
       <Hero />
       <SelectedWork />
+      <AnimationTools />
       <CompactInfo />
     </main>
   );

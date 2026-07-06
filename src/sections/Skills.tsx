@@ -1,17 +1,16 @@
 import { SectionHeader } from "../components/SectionHeader";
 
 const skills = [
-  "Spine 2D",
+  "Spine 2D Animation",
   "Character Rigging",
-  "Slot Game Animation",
-  "UI Animation",
-  "Feature Animation",
-  "VFX",
-  "Photoshop",
-  "After Effects",
-  "Cocos Creator",
-  "Optimization",
-  "Export Validation",
+  "Character Animation",
+  "Slot Symbol Animation",
+  "Feature Game Animation",
+  "UI Motion",
+  "VFX Animation",
+  "Fake 3D Spine Motion",
+  "Game-Ready Exports",
+  "Cocos Integration",
 ];
 
 export function Skills() {

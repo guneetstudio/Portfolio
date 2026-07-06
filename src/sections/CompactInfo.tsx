@@ -1,15 +1,13 @@
 const skills = [
-  "Spine 2D",
+  "Spine 2D Animation",
   "Character Rigging",
-  "Slot Game Animation",
-  "UI Animation",
-  "Feature Animation",
-  "VFX",
-  "Photoshop",
-  "After Effects",
-  "Cocos Creator",
-  "Optimization",
-  "Export Validation",
+  "Character Animation",
+  "Slot Symbol Animation",
+  "Feature Game Animation",
+  "UI Motion",
+  "VFX Animation",
+  "Game-Ready Exports",
+  "Cocos Integration",
 ];
 
 const roles = [
@@ -62,25 +60,6 @@ export function CompactInfo() {
                 <span>{role.title}</span>
               </article>
             ))}
-          </div>
-        </details>
-
-        <details className="info-card" open>
-          <summary>
-            <span>Animation Tools</span>
-          </summary>
-          <div className="compact-contact">
-            <h3>WebP Skeleton Viewer</h3>
-            <p>Open the public-safe Spine WebP viewer.</p>
-            <a
-              aria-label="Open WebP Skeleton Viewer in a new tab"
-              className="button button-secondary"
-              href="/tools/webp-skeleton-viewer/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Open Viewer
-            </a>
           </div>
         </details>
 
