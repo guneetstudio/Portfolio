@@ -74,10 +74,10 @@ export const portfolioItems: PortfolioItem[] = [
       "Game Ready"
     ],
     "spine": {
-      "json": "/spine-assets/Chocolate/chocolate.json",
-      "atlas": "/spine-assets/Chocolate/chocolate.atlas",
+      "json": "/spine-assets/Chocolate/chocolate-v2.json",
+      "atlas": "/spine-assets/Chocolate/chocolate-v2.atlas",
       "textures": [
-        "/spine-assets/Chocolate/chocolate.png"
+        "/spine-assets/Chocolate/chocolate-v2.png"
       ]
     },
     "thumbnail": "/spine-assets/Chocolate/thumbnail.webp",
