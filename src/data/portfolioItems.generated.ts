@@ -320,6 +320,29 @@ export const portfolioItems: PortfolioItem[] = [
     ]
   },
   {
+    "id": "lollipop",
+    "title": "Lollipop",
+    "sourceFolderName": "Lollipop",
+    "category": "Feature Asset / Prop",
+    "description": "Lollipop feature asset animation with clean timing and presentation.",
+    "tags": [
+      "Spine 2D",
+      "Feature Asset",
+      "Game Ready"
+    ],
+    "spine": {
+      "json": "/spine-assets/Lollipop/lollipop.json",
+      "atlas": "/spine-assets/Lollipop/lollipop.atlas",
+      "textures": [
+        "/spine-assets/Lollipop/lollipop.png"
+      ]
+    },
+    "thumbnail": "/spine-assets/Lollipop/thumbnail.webp",
+    "animations": [
+      "win"
+    ]
+  },
+  {
     "id": "owl",
     "title": "Owl",
     "sourceFolderName": "Owl",
