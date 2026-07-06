@@ -63,29 +63,6 @@ export const portfolioItems: PortfolioItem[] = [
     ]
   },
   {
-    "id": "chocolate",
-    "title": "Chocolate",
-    "sourceFolderName": "Chocolate",
-    "category": "Feature Asset / Prop",
-    "description": "Chocolate feature asset animation with clean timing and presentation.",
-    "tags": [
-      "Spine 2D",
-      "Feature Asset",
-      "Game Ready"
-    ],
-    "spine": {
-      "json": "/spine-assets/Chocolate/chocolate.json",
-      "atlas": "/spine-assets/Chocolate/chocolate.atlas",
-      "textures": [
-        "/spine-assets/Chocolate/chocolate.png"
-      ]
-    },
-    "thumbnail": "/spine-assets/Chocolate/thumbnail.webp",
-    "animations": [
-      "win"
-    ]
-  },
-  {
     "id": "chocolate-burst-multiplier",
     "title": "Chocolate Burst Multiplier",
     "sourceFolderName": "ChocolateBurstMultiplier",
