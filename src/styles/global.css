@@ -483,6 +483,361 @@ h3 {
   transform: translateY(-2px);
 }
 
+.mascot-companion {
+  position: fixed;
+  right: clamp(18px, 3.6vw, 48px);
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  z-index: 12;
+  width: clamp(88px, 8vw, 118px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 0, 0) scale(0.72);
+  transform-origin: 50% 86%;
+  animation:
+    mascotJackpotArrival 1.45s cubic-bezier(0.18, 0.9, 0.24, 1.18) 0.12s both,
+    mascotFloat 5.8s ease-in-out 1.58s infinite;
+  filter:
+    drop-shadow(0 0 16px rgba(255, 122, 0, 0.2))
+    drop-shadow(0 16px 26px rgba(0, 0, 0, 0.46));
+  transition:
+    right 320ms ease,
+    bottom 320ms ease,
+    opacity 220ms ease,
+    transform 320ms ease;
+}
+
+.mascot-companion::before {
+  position: absolute;
+  inset: 12% 8% 18%;
+  border-radius: 999px;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 193, 77, 0.42), transparent 46%),
+    radial-gradient(circle at 62% 34%, rgba(255, 42, 161, 0.28), transparent 58%);
+  opacity: 0;
+  filter: blur(14px);
+  animation: mascotJackpotGlow 1.5s ease-out 0.12s both;
+}
+
+.mascot-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mascot-tilt {
+  transform-box: fill-box;
+  transform-origin: 52% 62%;
+  transition: transform 360ms ease;
+}
+
+.mascot-body {
+  fill: url("#mascotBodyGlow");
+  stroke: rgba(255, 226, 162, 0.55);
+  stroke-width: 1.4;
+}
+
+.mascot-face-glow {
+  fill: rgba(8, 5, 14, 0.6);
+  stroke: rgba(255, 193, 77, 0.16);
+}
+
+.mascot-crown,
+.mascot-chip {
+  fill: url("#mascotChipGold");
+  stroke: rgba(255, 247, 229, 0.5);
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+}
+
+.mascot-shadow {
+  fill: rgba(0, 0, 0, 0.34);
+  filter: blur(1px);
+}
+
+.mascot-sparkles {
+  fill: #ffc14d;
+  opacity: 0.76;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    mascotIntroSparkle 1.4s ease-out 0.16s both,
+    mascotSparkle 2.8s ease-in-out 1.6s infinite;
+}
+
+.mascot-eye {
+  fill: #fff7de;
+  stroke: rgba(255, 193, 77, 0.7);
+  stroke-width: 0.8;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: mascotBlink 5.2s ease-in-out infinite;
+}
+
+.mascot-blink {
+  fill: none;
+  stroke: #fff1c4;
+  stroke-linecap: round;
+  stroke-width: 2.2;
+  opacity: 0;
+}
+
+.mascot-eye-shine {
+  fill: #ff2aa1;
+  opacity: 0.94;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascotEyePop 1.6s ease-out 0.18s both;
+}
+
+.mascot-smile,
+.mascot-work-smirk,
+.mascot-tools-mouth {
+  fill: none;
+  stroke: #ffe0aa;
+  stroke-linecap: round;
+  stroke-width: 3;
+  transition: opacity 220ms ease;
+}
+
+.mascot-work-smirk,
+.mascot-tools-mouth {
+  opacity: 0;
+}
+
+.mascot-rim {
+  fill: none;
+  stroke: rgba(255, 229, 178, 0.34);
+  stroke-linecap: round;
+  stroke-width: 2;
+  opacity: 0.78;
+}
+
+.mascot-arm path,
+.mascot-pointer path,
+.mascot-tool path,
+.mascot-tool circle {
+  fill: none;
+  stroke: #ffc14d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.mascot-arm circle {
+  fill: #f4bd62;
+  stroke: rgba(255, 247, 229, 0.42);
+  stroke-width: 1;
+}
+
+.mascot-arm-left,
+.mascot-arm-right,
+.mascot-pointer,
+.mascot-tool {
+  transform-box: fill-box;
+  transform-origin: 10% 10%;
+  transition:
+    opacity 220ms ease,
+    transform 300ms ease;
+}
+
+.mascot-arm-right {
+  transform-origin: 10% 20%;
+  animation: mascotWave 5.8s ease-in-out infinite;
+}
+
+.mascot-pointer,
+.mascot-tool {
+  opacity: 0;
+}
+
+.mascot-tool circle {
+  stroke-width: 3;
+}
+
+.mascot-work {
+  right: clamp(16px, 3vw, 38px);
+  bottom: calc(42px + env(safe-area-inset-bottom));
+}
+
+.mascot-work .mascot-tilt {
+  transform: rotate(-5deg);
+}
+
+.mascot-work .mascot-smile {
+  opacity: 0;
+}
+
+.mascot-work .mascot-work-smirk,
+.mascot-work .mascot-pointer {
+  opacity: 1;
+}
+
+.mascot-work .mascot-arm-right {
+  opacity: 0;
+}
+
+.mascot-tools {
+  right: clamp(20px, 4vw, 58px);
+  bottom: calc(74px + env(safe-area-inset-bottom));
+}
+
+.mascot-tools .mascot-tilt {
+  transform: rotate(4deg);
+}
+
+.mascot-tools .mascot-smile,
+.mascot-tools .mascot-work-smirk,
+.mascot-tools .mascot-pointer {
+  opacity: 0;
+}
+
+.mascot-tools .mascot-tools-mouth,
+.mascot-tools .mascot-tool {
+  opacity: 1;
+}
+
+.mascot-tools .mascot-arm-right {
+  opacity: 0;
+}
+
+.mascot-contact .mascot-arm-right {
+  animation-duration: 3.8s;
+}
+
+body.modal-open .mascot-companion {
+  opacity: 0 !important;
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+@keyframes mascotFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes mascotJackpotArrival {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.62) rotate(-8deg);
+  }
+
+  42% {
+    opacity: 1;
+    transform: translate3d(0, -10px, 0) scale(1.12) rotate(4deg);
+  }
+
+  66% {
+    transform: translate3d(0, 3px, 0) scale(0.96) rotate(-2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes mascotJackpotGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+
+  35% {
+    opacity: 0.88;
+    transform: scale(1.18);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+@keyframes mascotIntroSparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+
+  38% {
+    opacity: 1;
+    transform: scale(1.28) rotate(10deg);
+  }
+
+  100% {
+    opacity: 0.78;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes mascotEyePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  36% {
+    opacity: 1;
+    transform: scale(1.28);
+  }
+
+  100% {
+    opacity: 0.94;
+    transform: scale(1);
+  }
+}
+
+@keyframes mascotBlink {
+  0%,
+  88%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  92%,
+  95% {
+    transform: scaleY(0.12);
+  }
+}
+
+@keyframes mascotWave {
+  0%,
+  72%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  80% {
+    transform: rotate(-16deg);
+  }
+
+  88% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes mascotSparkle {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.94);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
 .content-section,
 .contact-section {
   width: min(100%, 1120px);
@@ -1165,6 +1520,24 @@ h3 {
     display: none;
   }
 
+  .mascot-companion,
+  .mascot-companion::before,
+  .mascot-arm-right,
+  .mascot-eye,
+  .mascot-eye-shine,
+  .mascot-sparkles {
+    animation: none !important;
+  }
+
+  .mascot-companion {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  .mascot-companion::before {
+    opacity: 0;
+  }
+
   .work-play-indicator {
     animation: none !important;
   }
@@ -1178,6 +1551,29 @@ body.modal-open {
 .section {
   min-height: auto;
   padding: 34px 14px;
+}
+
+.mascot-companion {
+  right: max(12px, env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  width: 62px;
+  opacity: 0.86;
+  transform: none;
+  animation: none;
+}
+
+.mascot-work {
+  bottom: calc(74px + env(safe-area-inset-bottom));
+}
+
+.mascot-tools,
+.mascot-contact {
+  bottom: calc(78px + env(safe-area-inset-bottom));
+}
+
+.mascot-pointer,
+.mascot-tool {
+  transform: scale(0.82);
 }
 
 .hero-section {
@@ -1830,6 +2226,31 @@ h2 {
 }
 
 @media (min-width: 620px) {
+  .mascot-companion {
+    right: clamp(18px, 3.6vw, 48px);
+    bottom: calc(22px + env(safe-area-inset-bottom));
+    width: clamp(88px, 8vw, 118px);
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.72);
+    animation:
+      mascotJackpotArrival 1.45s cubic-bezier(0.18, 0.9, 0.24, 1.18) 0.12s both,
+      mascotFloat 5.8s ease-in-out 1.58s infinite;
+  }
+
+  .mascot-work {
+    right: clamp(16px, 3vw, 38px);
+    bottom: calc(42px + env(safe-area-inset-bottom));
+  }
+
+  .mascot-tools {
+    right: clamp(20px, 4vw, 58px);
+    bottom: calc(74px + env(safe-area-inset-bottom));
+  }
+
+  .mascot-contact {
+    bottom: calc(48px + env(safe-area-inset-bottom));
+  }
+
   .hero-section {
     padding: 48px 28px;
   }

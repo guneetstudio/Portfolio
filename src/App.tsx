@@ -1,3 +1,4 @@
+import { MascotCompanion } from "./components/MascotCompanion";
 import { AnimationTools } from "./sections/AnimationTools";
 import { CompactInfo } from "./sections/CompactInfo";
 import { Hero } from "./sections/Hero";
@@ -17,6 +18,7 @@ export default function App() {
       <SelectedWork />
       <AnimationTools />
       <CompactInfo />
+      <MascotCompanion />
     </main>
   );
 }
