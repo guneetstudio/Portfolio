@@ -67,6 +67,25 @@ export function CompactInfo() {
 
         <details className="info-card" open>
           <summary>
+            <span>Animation Tools</span>
+          </summary>
+          <div className="compact-contact">
+            <h3>WebP Skeleton Viewer</h3>
+            <p>Open the public-safe Spine WebP viewer.</p>
+            <a
+              aria-label="Open WebP Skeleton Viewer in a new tab"
+              className="button button-secondary"
+              href="/tools/webp-skeleton-viewer/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Open Viewer
+            </a>
+          </div>
+        </details>
+
+        <details className="info-card" open>
+          <summary>
             <span>Contact</span>
           </summary>
           <div className="compact-contact">
