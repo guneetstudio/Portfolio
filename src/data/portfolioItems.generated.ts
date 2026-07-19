@@ -109,7 +109,8 @@ export const portfolioItems: PortfolioItem[] = [
       "atlas": "/spine-assets/Symbols/Boat/boat%20animation.atlas",
       "textures": [
         "/spine-assets/Symbols/Boat/boat%20animation.png",
-        "/spine-assets/Symbols/Boat/boat%20animation_2.png"
+        "/spine-assets/Symbols/Boat/boat%20animation_2.png",
+        "/spine-assets/Symbols/Boat/boat%20animation_3.png"
       ]
     },
     "thumbnail": "/spine-assets/Symbols/Boat/thumbnail.webp",
