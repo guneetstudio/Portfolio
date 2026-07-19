@@ -1,0 +1,115 @@
+base game bg.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+scale:0.68
+10fish
+bounds:1198,229,58,34
+11fish
+bounds:1975,398,71,42
+12fish
+bounds:1975,367,71,29
+13fish
+bounds:1169,124,49,29
+rotate:90
+1fish
+bounds:1578,321,87,42
+2fish
+bounds:1986,1954,92,58
+rotate:90
+3fish
+bounds:1815,1632,50,24
+4fish
+bounds:1950,1810,75,23
+rotate:90
+5fish
+bounds:1015,54,58,31
+rotate:90
+6fish
+bounds:1667,324,82,39
+7fish
+bounds:1484,322,92,41
+8fish
+bounds:1360,261,46,27
+9fish
+bounds:1484,291,57,29
+Free game bg copy
+bounds:2,1310,1307,736
+base game bg copy
+bounds:738,572,1307,736
+filter
+bounds:2,2,1306,734
+rotate:90
+fish1
+bounds:1786,1600,48,27
+offsets:0,0,49,28
+rotate:90
+fish10
+bounds:1986,1903,49,49
+fish11
+bounds:1169,175,51,30
+rotate:90
+fish12
+bounds:1675,1522,40,23
+offsets:0,0,40,24
+fish2
+bounds:1529,1458,53,33
+offsets:0,0,54,33
+rotate:90
+fish4
+bounds:1786,1557,41,26
+rotate:90
+fish5
+bounds:1786,1557,41,26
+rotate:90
+fish6
+bounds:1201,193,46,34
+fish7
+bounds:738,4,29,20
+fish8
+bounds:1360,290,122,73
+fish9
+bounds:1258,234,53,29
+fosh 3
+bounds:1313,234,45,29
+left plant1
+bounds:1764,366,209,204
+left plant2
+bounds:1311,1440,128,208
+left plant3
+bounds:1815,1658,106,92
+plant left1
+bounds:1311,1310,164,128
+offsets:0,4,164,132
+plant left2
+bounds:1815,1752,133,133
+plant left3
+bounds:1441,1457,86,54
+plant left4
+bounds:1815,1887,169,159
+plant left5
+bounds:738,114,310,249
+plant right1
+bounds:1050,228,146,135
+plant right2
+bounds:1050,125,117,101
+plant right3
+bounds:1582,1522,91,126
+plant right4
+bounds:937,47,76,65
+rays
+bounds:1311,1650,502,396
+offsets:0,19,502,509
+right plant
+bounds:1198,265,160,98
+right plant2
+bounds:1675,1547,109,101
+right plant3
+bounds:1975,442,65,128
+right plant4
+bounds:738,26,86,197
+rotate:90
+right plant5
+bounds:1441,1513,139,135
+rock
+bounds:738,365,1024,205

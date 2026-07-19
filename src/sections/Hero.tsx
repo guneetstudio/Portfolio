@@ -19,6 +19,7 @@ export function Hero() {
         ))}
       </div>
       <div className="hero-scrim" aria-hidden="true" />
+      <div className="hero-intro-veil" aria-hidden="true" />
       <div className="hero-content hero-layout">
         <div className="hero-copy-block">
           <p className="eyebrow hero-kicker hero-animate">2D Spine Animator Portfolio</p>
@@ -61,7 +62,7 @@ export function Hero() {
           aria-label="Portrait-led animation portfolio visual"
         >
           {portraitFailed ? (
-            <span aria-hidden="true">GS</span>
+            <span className="hero-portrait-fallback-mark" aria-hidden="true">GS</span>
           ) : (
             <img
               src="/hero-portrait.webp"

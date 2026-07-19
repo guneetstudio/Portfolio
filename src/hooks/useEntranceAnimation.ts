@@ -5,38 +5,62 @@ export function useEntranceAnimation() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       gsap.set(".hero-animate", { autoAlpha: 1, clearProps: "transform" });
-      gsap.set(".hero-title-glow, .hero-burst span", { autoAlpha: 0 });
-      return;
+      gsap.set(".hero-intro-veil, .hero-title-glow, .hero-burst span", {
+        autoAlpha: 0,
+      });
+      const reducedMotionFade = gsap.fromTo(
+        ".hero-content",
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 0.18, ease: "none" },
+      );
+      return () => reducedMotionFade.kill();
     }
 
     const ctx = gsap.context(() => {
       gsap.set(".hero-title", { transformOrigin: "50% 58%" });
-      gsap.set(".hero-title-glow, .hero-burst span", { autoAlpha: 0 });
+      gsap.set(".hero-intro-veil", { autoAlpha: 1 });
+      gsap.set(".hero-title-glow, .hero-burst span", {
+        autoAlpha: 0,
+      });
 
       const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       timeline
+        .to(".hero-intro-veil", { autoAlpha: 0, duration: 0.56, ease: "power2.out" }, 0.04)
         .fromTo(
-          ".hero-visual",
-          { autoAlpha: 0 },
-          { autoAlpha: 1, duration: 0.34 },
+          ".hero-portrait",
+          {
+            autoAlpha: 0,
+            y: 14,
+            scale: 0.88,
+            filter: "brightness(0.48) saturate(0.7)",
+          },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            filter: "brightness(1) saturate(1)",
+            duration: 0.58,
+            ease: "back.out(1.22)",
+          },
+          0.06,
         )
         .fromTo(
           ".hero-title-glow",
           { autoAlpha: 0, scale: 0.42 },
           { autoAlpha: 0.95, scale: 1.12, duration: 0.34, ease: "power2.out" },
-          0.08,
+          0.22,
         )
         .to(
           ".hero-title-glow",
           { autoAlpha: 0, scale: 1.56, duration: 0.46, ease: "power3.out" },
-          0.28,
+          0.42,
         )
         .fromTo(
           ".hero-kicker",
           { autoAlpha: 0, y: 12 },
           { autoAlpha: 1, y: 0, duration: 0.36 },
-          0.14,
+          0.22,
         )
         .fromTo(
           ".hero-title",
@@ -49,7 +73,7 @@ export function useEntranceAnimation() {
             duration: 0.5,
             ease: "back.out(1.72)",
           },
-          0.16,
+          0.28,
         )
         .fromTo(
           ".hero-burst span",
@@ -64,7 +88,7 @@ export function useEntranceAnimation() {
             stagger: 0.014,
             ease: "power2.out",
           },
-          0.22,
+          0.38,
         )
         .to(
           ".hero-burst span",
@@ -76,32 +100,19 @@ export function useEntranceAnimation() {
             stagger: 0.012,
             ease: "power3.in",
           },
-          0.52,
+          0.68,
         )
         .fromTo(
           ".hero-role",
           { autoAlpha: 0, y: 14 },
           { autoAlpha: 1, y: 0, duration: 0.32 },
-          0.62,
-        )
-        .fromTo(
-          ".hero-portrait",
-          { autoAlpha: 0, y: 18, scale: 0.9, rotate: -2 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            rotate: 0,
-            duration: 0.58,
-            ease: "back.out(1.28)",
-          },
-          0.66,
+          0.76,
         )
         .fromTo(
           ".hero-copy",
           { autoAlpha: 0, y: 14 },
           { autoAlpha: 1, y: 0, duration: 0.34 },
-          0.86,
+          0.92,
         )
         .fromTo(
           ".hero-actions .hero-animate",
@@ -114,7 +125,7 @@ export function useEntranceAnimation() {
             stagger: 0.08,
             ease: "back.out(1.55)",
           },
-          1.14,
+          1.12,
         );
     });
 

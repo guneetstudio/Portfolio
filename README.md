@@ -30,25 +30,19 @@ npm run build
 
 ## Portfolio Data
 
-The source Spine export folder is:
-
-```text
-/Users/guneet/SpinePortfolioExports
-```
-
-Running `npm run generate:portfolio` scans that folder, copies supported assets into:
+The portfolio Spine asset root is:
 
 ```text
 public/spine-assets/
 ```
 
-and regenerates:
+Running `npm run generate:portfolio` scans the six display folders in that asset root and regenerates:
 
 ```text
 src/data/portfolioItems.generated.ts
 ```
 
-The scanner expects each portfolio folder to contain Spine JSON, atlas, and texture files. It also reads animation names from the Spine JSON so the modal can expose animation tabs.
+The scanner reads nested item folders, root-level loose bundles, atlas texture pages, and animation names. Generated items include their display folder and a folder-qualified ID. It does not copy, rename, or delete Spine assets.
 
 ## Thumbnails
 
@@ -63,7 +57,7 @@ preview.webp
 preview.png
 ```
 
-Atlas/runtime textures are not used as card thumbnails. If a clean thumbnail is missing, the card shows a dark premium placeholder.
+Atlas/runtime textures are not used as card thumbnails. If a clean thumbnail is missing or fails to load, the card uses the shared `/default-spine-thumbnail.webp` asset. If that shared asset also fails, the existing CSS placeholder remains as the final fallback.
 
 ## Thumbnail Export Standard
 
@@ -86,7 +80,7 @@ WebP quality 75-85
 Example:
 
 ```text
-/Users/guneet/SpinePortfolioExports/Dog/thumbnail.webp
+public/spine-assets/Symbols/Dog/thumbnail.webp
 ```
 
 After adding or replacing thumbnails, run:

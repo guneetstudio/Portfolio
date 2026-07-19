@@ -2,7 +2,12 @@ import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
 import { AnimationTabs } from "../components/AnimationTabs";
 import { SectionHeader } from "../components/SectionHeader";
 import { WorkCard } from "../components/WorkCard";
-import { portfolioItems, type PortfolioItem } from "../data/portfolioItems.generated";
+import {
+  portfolioDisplayFolders,
+  portfolioItems,
+  type DisplayFolder,
+  type PortfolioItem,
+} from "../data/portfolioItems.generated";
 import { prefetchSpineAssets } from "../utils/prefetchSpineAssets";
 
 type WorkFilter = {
@@ -61,6 +66,7 @@ function itemMatchesFilter(item: PortfolioItem, filter: string) {
 }
 
 export function SelectedWork() {
+  const [activeDisplayFolder, setActiveDisplayFolder] = useState<DisplayFolder>("Symbols");
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeItem, setActiveItem] = useState<PortfolioItem | null>(null);
   const [activeAnimation, setActiveAnimation] = useState<string | null>(null);
@@ -68,9 +74,18 @@ export function SelectedWork() {
   const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
   const filteredItems = useMemo(
-    () => portfolioItems.filter((item) => itemMatchesFilter(item, activeFilter)),
-    [activeFilter],
+    () =>
+      portfolioItems.filter(
+        (item) =>
+          item.displayFolder === activeDisplayFolder && itemMatchesFilter(item, activeFilter),
+      ),
+    [activeDisplayFolder, activeFilter],
   );
+  const handleDisplayFolderSelect = (displayFolder: DisplayFolder) => {
+    setActiveDisplayFolder(displayFolder);
+    setActiveItem(null);
+    setActiveAnimation(null);
+  };
   const handleFilterSelect = (filter: string) => {
     setActiveFilter(filter);
   };
@@ -88,14 +103,14 @@ export function SelectedWork() {
     prefetchSpinePreviewModule();
   };
   const navigateModalItem = (direction: -1 | 1) => {
-    if (!activeItem) return;
+    if (!activeItem || filteredItems.length === 0) return;
 
-    const currentIndex = portfolioItems.findIndex((item) => item.id === activeItem.id);
+    const currentIndex = filteredItems.findIndex((item) => item.id === activeItem.id);
     const nextIndex =
       currentIndex === -1
         ? 0
-        : (currentIndex + direction + portfolioItems.length) % portfolioItems.length;
-    const nextItem = portfolioItems[nextIndex];
+        : (currentIndex + direction + filteredItems.length) % filteredItems.length;
+    const nextItem = filteredItems[nextIndex];
 
     setActiveItem(nextItem);
     setActiveAnimation(nextItem.animations[0] ?? null);
@@ -111,16 +126,16 @@ export function SelectedWork() {
   };
 
   useEffect(() => {
-    if (!activeItem) return;
+    if (!activeItem || filteredItems.length === 0) return;
 
-    const currentIndex = portfolioItems.findIndex((item) => item.id === activeItem.id);
+    const currentIndex = filteredItems.findIndex((item) => item.id === activeItem.id);
     if (currentIndex === -1) return;
 
-    prefetchSpineAssets(portfolioItems[(currentIndex + 1) % portfolioItems.length]);
+    prefetchSpineAssets(filteredItems[(currentIndex + 1) % filteredItems.length]);
     prefetchSpineAssets(
-      portfolioItems[(currentIndex - 1 + portfolioItems.length) % portfolioItems.length],
+      filteredItems[(currentIndex - 1 + filteredItems.length) % filteredItems.length],
     );
-  }, [activeItem]);
+  }, [activeItem, filteredItems]);
 
   useEffect(() => {
     if (!activeItem) return;
@@ -159,6 +174,23 @@ export function SelectedWork() {
         title="Selected Spine Work"
       />
       <p className="work-guidance section-reveal">Tap a symbol to reveal the motion.</p>
+      <div
+        aria-label="Spine work folders"
+        className="work-folder-selector section-reveal"
+        role="group"
+      >
+        {portfolioDisplayFolders.map((folderOption) => (
+          <button
+            aria-pressed={folderOption.folder === activeDisplayFolder}
+            className="filter-chip"
+            key={folderOption.folder}
+            onClick={() => handleDisplayFolderSelect(folderOption.folder)}
+            type="button"
+          >
+            {folderOption.label}
+          </button>
+        ))}
+      </div>
       <p className="section-copy section-reveal">
         A focused showcase of Spine rigs, character motion, UI animation, feature
         assets, and VFX.
@@ -181,16 +213,23 @@ export function SelectedWork() {
           </div>
         )}
 
-        <div className="work-card-grid" aria-label="Selected Spine work items">
-          {filteredItems.map((item) => (
-            <WorkCard
-              isActive={item.id === activeItem?.id}
-              item={item}
-              key={item.id}
-              onPrefetch={handleItemPrefetch}
-              onSelect={handleItemSelect}
-            />
-          ))}
+        <div
+          className="work-card-grid"
+          aria-label={`${activeDisplayFolder} Spine work items`}
+        >
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => (
+              <WorkCard
+                isActive={item.id === activeItem?.id}
+                item={item}
+                key={item.id}
+                onPrefetch={handleItemPrefetch}
+                onSelect={handleItemSelect}
+              />
+            ))
+          ) : (
+            <p className="work-folder-empty">No Spine items found in this folder yet.</p>
+          )}
         </div>
       </div>
 

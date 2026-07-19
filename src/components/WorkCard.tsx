@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { PortfolioItem } from "../data/portfolioItems.generated";
 
+const defaultThumbnail = "/default-spine-thumbnail.webp";
+
 type WorkCardProps = {
   isActive: boolean;
   item: PortfolioItem;
@@ -9,9 +11,17 @@ type WorkCardProps = {
 };
 
 export function WorkCard({ isActive, item, onPrefetch, onSelect }: WorkCardProps) {
+  const [thumbnailSrc, setThumbnailSrc] = useState(item.thumbnail ?? defaultThumbnail);
   const [thumbnailFailed, setThumbnailFailed] = useState(false);
-  const showThumbnail = item.thumbnail && !thumbnailFailed;
   const handlePrefetch = () => onPrefetch(item);
+  const handleThumbnailError = () => {
+    if (thumbnailSrc !== defaultThumbnail) {
+      setThumbnailSrc(defaultThumbnail);
+      return;
+    }
+
+    setThumbnailFailed(true);
+  };
 
   return (
     <button
@@ -26,13 +36,13 @@ export function WorkCard({ isActive, item, onPrefetch, onSelect }: WorkCardProps
       type="button"
     >
       <span className="work-thumb" aria-hidden="true">
-        {showThumbnail ? (
+        {!thumbnailFailed ? (
           <img
             alt=""
             className="work-thumb-image"
             loading="lazy"
-            onError={() => setThumbnailFailed(true)}
-            src={item.thumbnail ?? undefined}
+            onError={handleThumbnailError}
+            src={thumbnailSrc}
           />
         ) : (
           <span className="work-thumb-placeholder">

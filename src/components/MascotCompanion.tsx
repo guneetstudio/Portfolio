@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type MascotSection = "hero" | "work" | "tools" | "contact";
 
@@ -9,8 +9,18 @@ const sectionMap: Array<{ id: string; section: MascotSection }> = [
   { id: "contact", section: "contact" },
 ];
 
+const sectionMessages: Partial<Record<MascotSection, string>> = {
+  hero: "Ready to see the motion?",
+  work: "Tap a symbol to reveal the motion.",
+  contact: "Let’s connect.",
+};
+
 export function MascotCompanion() {
   const [activeSection, setActiveSection] = useState<MascotSection>("hero");
+  const [isExcited, setIsExcited] = useState(false);
+  const [visibleMessage, setVisibleMessage] = useState<string | null>(null);
+  const seenMessagesRef = useRef(new Set<MascotSection>());
+  const excitementTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     const sectionElements = sectionMap
@@ -43,7 +53,7 @@ export function MascotCompanion() {
       },
       {
         rootMargin: "-22% 0px -38%",
-        threshold: [0.15, 0.35, 0.55, 0.75],
+        threshold: 0,
       },
     );
 
@@ -52,15 +62,75 @@ export function MascotCompanion() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const message = sectionMessages[activeSection];
+    if (!message || seenMessagesRef.current.has(activeSection)) {
+      setVisibleMessage(null);
+      return;
+    }
+
+    const showDelay = activeSection === "hero" ? 720 : 160;
+    const showTimer = window.setTimeout(() => {
+      setVisibleMessage(message);
+    }, showDelay);
+    const hideTimer = window.setTimeout(() => {
+      seenMessagesRef.current.add(activeSection);
+      setVisibleMessage(null);
+    }, showDelay + 3200);
+
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+    };
+  }, [activeSection]);
+
+  useEffect(() => {
+    const exciteMascot = () => {
+      if (excitementTimerRef.current) {
+        window.clearTimeout(excitementTimerRef.current);
+      }
+      setIsExcited(false);
+      window.requestAnimationFrame(() => setIsExcited(true));
+      excitementTimerRef.current = window.setTimeout(() => setIsExcited(false), 560);
+    };
+    const onPointerOver = (event: PointerEvent) => {
+      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+      const target = event.target instanceof Element ? event.target : null;
+      const card = target?.closest(".work-card-button");
+      const relatedTarget = event.relatedTarget instanceof Node ? event.relatedTarget : null;
+      if (!card || (relatedTarget && card.contains(relatedTarget))) return;
+      exciteMascot();
+    };
+    const onClick = (event: MouseEvent) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (target?.closest(".work-card-button")) exciteMascot();
+    };
+
+    document.addEventListener("pointerover", onPointerOver);
+    document.addEventListener("click", onClick);
+
+    return () => {
+      document.removeEventListener("pointerover", onPointerOver);
+      document.removeEventListener("click", onClick);
+      if (excitementTimerRef.current) {
+        window.clearTimeout(excitementTimerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
-      aria-hidden="true"
-      className={`mascot-companion mascot-${activeSection}`}
+      className={`mascot-companion mascot-${activeSection}${isExcited ? " mascot-excited" : ""}`}
     >
+      {visibleMessage && (
+        <div aria-live="polite" className="mascot-message" role="status">
+          {visibleMessage}
+        </div>
+      )}
       <svg
+        aria-hidden="true"
         className="mascot-svg"
         viewBox="0 0 120 132"
-        role="img"
       >
         <defs>
           <radialGradient id="mascotBodyGlow" cx="44%" cy="30%" r="72%">
@@ -97,6 +167,7 @@ export function MascotCompanion() {
         </g>
 
         <g className="mascot-tilt" filter="url(#mascotSoftGlow)">
+          <circle className="mascot-chip-ring" cx="63" cy="69" r="38" />
           <path
             className="mascot-crown"
             d="M42 32l8-14 10 11 12-13 7 16c-11 5-25 5-37 0z"
@@ -107,6 +178,7 @@ export function MascotCompanion() {
           />
           <path className="mascot-face-glow" d="M44 58c5-11 29-12 38 0 1 16-5 27-19 27S43 74 44 58z" />
           <path className="mascot-chip" d="M46 99c8 8 25 8 34 0-5 8-12 12-17 12s-12-4-17-12z" />
+          <path className="mascot-lucky-mark" d="M63 45l6 8-6 8-6-8z" />
 
           <g className="mascot-eyes">
             <path className="mascot-eye mascot-eye-left" d="M48 63c1-5 8-5 9 0 0 6-9 6-9 0z" />

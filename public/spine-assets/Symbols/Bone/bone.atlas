@@ -1,0 +1,10 @@
+bone.png
+size:662,438
+filter:Linear,Linear
+pma:true
+bone
+bounds:2,2,434,384
+rotate:90
+glow
+bounds:388,27,409,272
+rotate:90

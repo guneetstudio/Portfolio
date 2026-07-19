@@ -1,0 +1,266 @@
+female scatter.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+scale:0.64
+FRAME
+bounds:2,1403,320,320
+L arm
+bounds:557,1557,74,171
+L_close
+bounds:542,1479,17,13
+rotate:90
+L_ehebrow
+bounds:1594,47,22,17
+L_iris
+bounds:1801,189,12,12
+Layer 4
+bounds:325,1730,308,316
+Paper Copy
+bounds:2,1725,321,321
+R_close
+bounds:1734,87,15,10
+R_ehebrow
+bounds:2011,1561,21,10
+rotate:90
+a
+bounds:1951,1076,47,67
+back hAir
+bounds:1793,1378,216,204
+bangs
+bounds:557,1499,61,56
+bangs Drop Shadow
+bounds:466,11,65,60
+bangs2
+bounds:466,1323,78,37
+rotate:90
+bangs2 Drop Shadow
+bounds:1791,867,83,38
+breast flare
+bounds:1983,245,123,63
+rotate:90
+c
+bounds:533,26,45,67
+rotate:90
+create under the hat
+bounds:1793,1233,220,143
+e
+bounds:2000,1076,37,67
+earing back
+bounds:582,2,22,22
+earing_front
+bounds:2026,215,20,28
+eyeball
+bounds:1983,214,41,29
+face
+bounds:448,1403,93,92
+rotate:90
+frame sparkle/spsarkle_00
+bounds:2,1171,230,230
+frame sparkle/spsarkle_01
+bounds:635,1816,230,230
+frame sparkle/spsarkle_02
+bounds:2,939,230,230
+frame sparkle/spsarkle_03
+bounds:867,1816,230,230
+frame sparkle/spsarkle_04
+bounds:2,707,230,230
+frame sparkle/spsarkle_05
+bounds:1099,1816,230,230
+frame sparkle/spsarkle_06
+bounds:2,475,230,230
+frame sparkle/spsarkle_07
+bounds:1331,1816,230,230
+frame sparkle/spsarkle_08
+bounds:2,243,230,230
+frame sparkle/spsarkle_09
+bounds:1563,1816,230,230
+frame sparkle/spsarkle_10
+bounds:2,11,230,230
+frame sparkle/spsarkle_11
+bounds:1795,1816,230,230
+frame sparkle/spsarkle_12
+bounds:234,1171,230,230
+frame sparkle/spsarkle_13
+bounds:234,939,230,230
+frame sparkle/spsarkle_14
+bounds:234,707,230,230
+frame sparkle/spsarkle_15
+bounds:234,475,230,230
+frame sparkle/spsarkle_16
+bounds:234,243,230,230
+frame sparkle/spsarkle_17
+bounds:234,11,230,230
+frame sparkle/spsarkle_18
+bounds:635,1584,230,230
+frame sparkle/spsarkle_19
+bounds:867,1584,230,230
+frame sparkle/spsarkle_20
+bounds:1099,1584,230,230
+frame sparkle/spsarkle_21
+bounds:1331,1584,230,230
+frame sparkle/spsarkle_22
+bounds:1563,1584,230,230
+frame sparkle/spsarkle_23
+bounds:1795,1584,230,230
+frame sparkle/spsarkle_24
+bounds:325,1498,230,230
+frame sparkle/spsarkle_25
+bounds:633,1352,230,230
+frame sparkle/spsarkle_26
+bounds:865,1352,230,230
+frame sparkle/spsarkle_27
+bounds:1097,1352,230,230
+frame sparkle/spsarkle_28
+bounds:1329,1352,230,230
+frame sparkle/spsarkle_29
+bounds:1561,1352,230,230
+hair1
+bounds:1995,944,51,61
+hair2
+bounds:1951,1145,86,61
+rotate:90
+hand r
+bounds:1594,66,138,135
+hand_sparkle/hand_spark_00
+bounds:863,199,158,161
+hand_sparkle/hand_spark_01
+bounds:1095,364,158,161
+hand_sparkle/hand_spark_02
+bounds:1327,529,158,161
+hand_sparkle/hand_spark_03
+bounds:1559,694,158,161
+hand_sparkle/hand_spark_04
+bounds:1791,1070,158,161
+hand_sparkle/hand_spark_05
+bounds:1791,907,158,161
+hand_sparkle/hand_spark_06
+bounds:631,37,158,161
+rotate:90
+hand_sparkle/hand_spark_07
+bounds:1023,199,158,161
+hand_sparkle/hand_spark_08
+bounds:1255,364,158,161
+hand_sparkle/hand_spark_09
+bounds:1183,201,158,161
+hand_sparkle/hand_spark_10
+bounds:1487,529,158,161
+hand_sparkle/hand_spark_11
+bounds:1415,366,158,161
+hand_sparkle/hand_spark_12
+bounds:1719,694,158,161
+hand_sparkle/hand_spark_13
+bounds:1647,531,158,161
+hand_sparkle/hand_spark_14
+bounds:1343,201,158,161
+hand_sparkle/hand_spark_15
+bounds:1575,366,158,161
+hand_sparkle/hand_spark_16
+bounds:1503,203,158,161
+hand_sparkle/hand_spark_17
+bounds:1807,531,158,161
+hand_sparkle/hand_spark_18
+bounds:1735,368,158,161
+hand_sparkle/hand_spark_19
+bounds:1663,203,158,161
+hand_sparkle/hand_spark_20
+bounds:1823,205,158,161
+hand_sparkle/hand_spark_21
+bounds:794,34,158,161
+hand_sparkle/hand_spark_22
+bounds:954,36,158,161
+hand_sparkle/hand_spark_23
+bounds:1114,36,158,161
+hand_sparkle/hand_spark_24
+bounds:1274,38,158,161
+hand_sparkle/hand_spark_25
+bounds:1434,38,158,161
+l forearm
+bounds:324,1403,93,122
+rotate:90
+r
+bounds:1876,863,42,66
+rotate:90
+s
+bounds:1951,1007,44,67
+sclera
+bounds:602,29,42,27
+rotate:90
+t
+bounds:1997,1007,42,67
+t-1
+bounds:1951,938,42,67
+text_particles/text_0
+bounds:466,1001,230,163
+rotate:90
+text_particles/text_1
+bounds:466,769,230,163
+rotate:90
+text_particles/text_10
+bounds:466,537,230,163
+rotate:90
+text_particles/text_11
+bounds:466,305,230,163
+rotate:90
+text_particles/text_12
+bounds:466,73,230,163
+rotate:90
+text_particles/text_13
+bounds:631,1187,230,163
+text_particles/text_14
+bounds:631,1022,230,163
+text_particles/text_15
+bounds:863,1187,230,163
+text_particles/text_16
+bounds:631,857,230,163
+text_particles/text_17
+bounds:863,1022,230,163
+text_particles/text_18
+bounds:1095,1187,230,163
+text_particles/text_19
+bounds:631,692,230,163
+text_particles/text_2
+bounds:863,857,230,163
+text_particles/text_20
+bounds:1095,1022,230,163
+text_particles/text_21
+bounds:1327,1187,230,163
+text_particles/text_22
+bounds:631,527,230,163
+text_particles/text_23
+bounds:863,692,230,163
+text_particles/text_24
+bounds:1095,857,230,163
+text_particles/text_25
+bounds:1327,1022,230,163
+text_particles/text_26
+bounds:1559,1187,230,163
+text_particles/text_27
+bounds:631,362,230,163
+text_particles/text_28
+bounds:863,527,230,163
+text_particles/text_29
+bounds:1095,692,230,163
+text_particles/text_3
+bounds:1327,857,230,163
+text_particles/text_4
+bounds:1559,1022,230,163
+text_particles/text_5
+bounds:631,197,230,163
+text_particles/text_6
+bounds:863,362,230,163
+text_particles/text_7
+bounds:1095,527,230,163
+text_particles/text_8
+bounds:1327,692,230,163
+text_particles/text_9
+bounds:1559,857,230,163
+thumb_left
+bounds:533,2,22,47
+rotate:90
+torso
+bounds:1895,370,159,140
+rotate:90
+waist
+bounds:1734,99,102,65
+rotate:90

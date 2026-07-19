@@ -1,0 +1,241 @@
+all_win.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+scale:0.51
+FREE SPINS
+bounds:1247,864,176,27
+rotate:90
+Folder 5 Copy
+bounds:2,953,473,403
+Folder 6
+bounds:1331,45,224,83
+IN 12 IS FREE SPIN copy
+bounds:1547,2,169,20
+back_body
+bounds:1564,24,211,152
+base wooden
+bounds:1489,1890,429,156
+body base
+bounds:1174,1306,236,225
+body_base
+bounds:1107,1122,180,182
+bone wooden
+bounds:797,1824,690,222
+bow
+bounds:1452,1283,73,49
+bow shadow
+bounds:316,422,79,52
+chest fur
+bounds:1777,12,159,164
+collar
+bounds:1904,1023,157,101
+rotate:90
+collar_shadow
+bounds:1904,1182,160,105
+rotate:90
+congratulations
+bounds:172,393,558,83
+rotate:90
+dog shadow
+bounds:797,1674,652,148
+ear L
+bounds:1412,1334,62,100
+rotate:90
+ears
+bounds:1904,1344,203,100
+rotate:90
+ears r
+bounds:559,18,76,97
+eyebrows
+bounds:675,73,106,36
+rotate:90
+face_base
+bounds:1289,1133,171,161
+rotate:90
+fantastic
+bounds:357,532,419,98
+rotate:90
+fantastic_new
+bounds:257,476,475,98
+rotate:90
+food
+bounds:1247,665,77,67
+rotate:90
+food bowl shadow
+bounds:1247,744,118,56
+rotate:90
+front_paw_left
+bounds:1828,1564,74,112
+front_paw_right
+bounds:1412,1398,69,103
+golden retriever dog teeth
+bounds:142,41,51,22
+rotate:90
+grass 1
+bounds:1452,1169,112,45
+rotate:90
+grass 2
+bounds:2,345,606,168
+rotate:90
+grass3
+bounds:1489,1819,409,69
+ground
+bounds:2,1358,733,256
+inner_mouth
+bounds:1997,761,104,49
+rotate:90
+jaw_shadow
+bounds:1904,867,154,104
+rotate:90
+kutiya_collar
+bounds:1880,184,118,89
+rotate:90
+kutiya_face base
+bounds:397,17,136,160
+rotate:90
+kutiya_sclera
+bounds:2006,1456,91,40
+rotate:90
+kutiya_tail
+bounds:1904,1549,142,122
+kutiya_tounge
+bounds:737,1516,34,30
+left leg
+bounds:142,94,95,249
+left_eye
+bounds:730,1015,25,25
+lower leg
+bounds:1880,413,104,139
+lower_jaw
+bounds:1828,1678,139,64
+rotate:90
+lower_teeth
+bounds:2,2,60,37
+max
+bounds:2,41,302,138
+rotate:90
+mouth lower
+bounds:1938,2,86,61
+neck area
+bounds:1904,554,150,99
+rotate:90
+neck_shadow
+bounds:1114,1363,151,57
+rotate:90
+nice
+bounds:477,945,411,160
+rotate:90
+nose
+bounds:257,393,81,57
+rotate:90
+omg
+bounds:457,568,375,156
+rotate:90
+omg_shine/0
+bounds:1451,1661,375,156
+omg_shine/29
+bounds:1451,1661,375,156
+omg_shine/1
+bounds:615,558,375,156
+rotate:90
+omg_shine/10
+bounds:797,1516,375,156
+omg_shine/11
+bounds:737,1358,375,156
+omg_shine/12
+bounds:730,1200,375,156
+omg_shine/13
+bounds:730,1042,375,156
+omg_shine/14
+bounds:773,665,375,156
+rotate:90
+omg_shine/15
+bounds:931,665,375,156
+rotate:90
+omg_shine/16
+bounds:773,507,375,156
+omg_shine/17
+bounds:1089,665,375,156
+rotate:90
+omg_shine/18
+bounds:1448,1503,375,156
+omg_shine/19
+bounds:239,16,375,156
+rotate:90
+omg_shine/2
+bounds:397,155,375,156
+rotate:90
+omg_shine/20
+bounds:555,181,375,156
+rotate:90
+omg_shine/21
+bounds:713,349,375,156
+omg_shine/22
+bounds:713,191,375,156
+omg_shine/23
+bounds:713,33,375,156
+omg_shine/24
+bounds:1090,130,375,156
+rotate:90
+omg_shine/25
+bounds:1150,507,375,156
+omg_shine/26
+bounds:1248,130,375,156
+rotate:90
+omg_shine/27
+bounds:1406,130,375,156
+rotate:90
+omg_shine/28
+bounds:1527,1345,375,156
+omg_shine/3
+bounds:1527,1187,375,156
+omg_shine/4
+bounds:1527,1029,375,156
+omg_shine/5
+bounds:1527,871,375,156
+omg_shine/6
+bounds:1527,713,375,156
+omg_shine/7
+bounds:1527,555,375,156
+omg_shine/8
+bounds:1564,178,375,156
+rotate:90
+omg_shine/9
+bounds:1722,178,375,156
+rotate:90
+pupil
+bounds:1880,304,107,107
+rays
+bounds:2,1616,793,430
+right leg
+bounds:639,935,89,421
+right_eye
+bounds:457,541,25,25
+sclera
+bounds:1938,65,117,44
+rotate:90
+super
+bounds:1920,1673,373,126
+rotate:90
+tail
+bounds:737,1548,50,66
+tongue
+bounds:105,2,37,37
+tounge shadow
+bounds:64,2,39,37
+upper_jaw
+bounds:559,117,114,62
+upper_teeth
+bounds:172,348,62,43
+win_fantastic
+bounds:1904,706,159,91
+rotate:90
+win_fantastic_new
+bounds:1107,1042,168,78
+win_max
+bounds:1174,1533,272,139
+win_super
+bounds:1090,6,239,122
+you have on
+bounds:1331,18,214,25

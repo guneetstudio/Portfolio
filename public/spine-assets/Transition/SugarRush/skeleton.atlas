@@ -1,0 +1,35 @@
+skeleton.png
+size:2048,1024
+filter:Linear,Linear
+pma:true
+scale:0.8
+a
+bounds:1771,865,150,143
+b
+bounds:1608,865,161,143
+blast
+bounds:2,2,388,384
+blue_box
+bounds:584,543,510,465
+c
+bounds:392,92,145,145
+d
+bounds:392,239,154,147
+e
+bounds:1608,710,148,153
+f
+bounds:1758,723,140,140
+g
+bounds:1608,431,125,134
+h
+bounds:1608,567,140,141
+i
+bounds:1608,285,112,144
+multiple color box
+bounds:1096,543,510,465
+pink_box
+bounds:584,76,510,465
+red_box
+bounds:1096,76,510,465
+scatter_symbol (1)
+bounds:2,388,580,620

@@ -1,0 +1,224 @@
+c.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+scale:0.54
+Left_ribbon
+bounds:1652,727,145,118
+rotate:90
+Right_ribbon
+bounds:1930,882,140,115
+offsets:0,14,140,129
+rotate:90
+bell_outer_side
+bounds:1187,1660,362,386
+offsets:0,1,362,387
+bell_pointer
+bounds:1812,1254,151,228
+offsets:3,0,154,228
+rotate:90
+bell_shine/shine_01
+bounds:886,11,40,109
+offsets:22,3,362,387
+rotate:90
+bell_shine/shine_02
+bounds:1594,874,52,148
+offsets:22,1,362,387
+rotate:90
+bell_shine/shine_03
+bounds:996,1200,71,217
+offsets:16,1,362,387
+bell_shine/shine_04
+bounds:506,4,98,275
+offsets:2,1,362,387
+bell_shine/shine_05
+bounds:1072,1281,113,307
+offsets:0,3,362,387
+bell_shine/shine_06
+bounds:1069,1143,127,334
+offsets:0,3,362,387
+rotate:90
+bell_shine/shine_07
+bounds:433,579,141,354
+offsets:0,3,362,387
+bell_shine/shine_08
+bounds:559,1122,155,367
+offsets:0,4,362,387
+bell_shine/shine_09
+bounds:724,1419,169,346
+offsets:0,34,362,387
+rotate:90
+bell_shine/shine_10
+bounds:1187,1473,185,335
+offsets:0,50,362,387
+rotate:90
+bell_shine/shine_11
+bounds:1187,1272,199,323
+offsets:0,64,362,387
+rotate:90
+bell_shine/shine_12
+bounds:1831,1736,215,310
+offsets:0,77,362,387
+bell_shine/shine_13
+bounds:886,53,230,299
+offsets:0,88,362,387
+bell_shine/shine_14
+bounds:1056,369,245,287
+offsets:0,100,362,387
+bell_shine/shine_15
+bounds:2,2,261,277
+offsets:1,110,362,387
+bell_shine/shine_16
+bounds:1325,866,275,267
+offsets:3,120,362,387
+rotate:90
+bell_shine/shine_17
+bounds:1118,81,286,257
+offsets:9,130,362,387
+rotate:90
+bell_shine/shine_18
+bounds:562,284,293,248
+offsets:19,139,362,387
+rotate:90
+bell_shine/shine_19
+bounds:808,654,300,239
+offsets:31,148,362,387
+rotate:90
+bell_shine/shine_20
+bounds:576,619,314,230
+offsets:46,157,362,387
+rotate:90
+bell_shine/shine_21
+bounds:812,354,298,242
+offsets:64,145,362,387
+rotate:90
+bell_shine/shine_22
+bounds:265,2,277,239
+offsets:85,145,362,387
+rotate:90
+bell_shine/shine_23
+bounds:1377,130,252,229
+offsets:110,145,362,387
+rotate:90
+bell_shine/shine_24
+bounds:1608,2,220,171
+offsets:142,182,362,387
+bell_shine/shine_25
+bounds:1405,1145,174,125
+offsets:188,182,362,387
+bell_shine/shine_26
+bounds:1860,341,129,82
+offsets:233,182,362,387
+rotate:90
+bell_shine/shine_27
+bounds:1860,155,100,65
+offsets:262,182,362,387
+bell_shine/shine_28
+bounds:1927,75,78,59
+offsets:284,182,362,387
+rotate:90
+bg
+bounds:2,1491,720,555
+frame effect/light_sweep_00
+bounds:1577,396,29,29
+offsets:0,0,278,278
+frame effect/light_sweep_01
+bounds:812,300,52,52
+offsets:0,0,278,278
+frame effect/light_sweep_02
+bounds:1118,5,74,74
+offsets:0,0,278,278
+frame effect/light_sweep_03
+bounds:1950,494,96,96
+offsets:0,0,278,278
+frame effect/light_sweep_04
+bounds:1830,472,118,118
+offsets:0,0,278,278
+frame effect/light_sweep_05
+bounds:1772,733,141,141
+offsets:0,0,278,278
+frame effect/light_sweep_06
+bounds:1594,1092,163,163
+offsets:0,0,278,278
+frame effect/light_sweep_07
+bounds:559,935,185,185
+offsets:0,0,278,278
+frame effect/light_sweep_08
+bounds:1049,658,207,207
+offsets:0,0,278,278
+frame effect/light_sweep_09
+bounds:1581,1257,229,229
+offsets:0,0,278,278
+frame effect/light_sweep_10
+bounds:1577,427,251,251
+offsets:0,0,278,278
+frame effect/light_sweep_11
+bounds:1049,867,274,274
+offsets:0,0,278,278
+frame effect/light_sweep_12
+bounds:2,281,278,278
+frame effect/light_sweep_13
+bounds:1551,1768,278,278
+frame effect/light_sweep_14
+bounds:282,281,278,278
+frame effect/light_sweep_15
+bounds:716,1139,278,278
+frame effect/light_sweep_16
+bounds:1551,1488,278,278
+frame effect/light_sweep_17
+bounds:606,4,278,278
+frame effect/light_sweep_18
+bounds:1303,384,272,272
+offsets:6,6,278,278
+frame effect/light_sweep_19
+bounds:1608,175,250,250
+offsets:28,28,278,278
+frame effect/light_sweep_20
+bounds:1759,1024,228,228
+offsets:50,50,278,278
+frame effect/light_sweep_21
+bounds:1258,658,206,206
+offsets:72,72,278,278
+frame effect/light_sweep_22
+bounds:1466,680,184,184
+offsets:94,94,278,278
+frame effect/light_sweep_23
+bounds:1594,928,162,162
+offsets:116,116,278,278
+frame effect/light_sweep_24
+bounds:1830,592,139,139
+offsets:139,139,278,278
+frame effect/light_sweep_25
+bounds:1860,222,117,117
+offsets:161,161,278,278
+frame effect/light_sweep_26
+bounds:1830,58,95,95
+offsets:183,183,278,278
+frame effect/light_sweep_27
+bounds:1194,6,73,73
+offsets:205,205,278,278
+frame effect/light_sweep_28
+bounds:996,1148,50,50
+offsets:228,228,278,278
+frame effect/light_sweep_29
+bounds:1830,442,28,28
+offsets:250,250,278,278
+golden_outer_frame
+bounds:2,935,555,554
+hook
+bounds:1950,414,78,78
+inner_side
+bounds:1831,1407,327,205
+rotate:90
+left-leaf
+bounds:1377,29,227,99
+particle
+bounds:724,1590,461,456
+ribbon_shadow
+bounds:1758,876,170,146
+offsets:0,1,170,147
+right_leaf
+bounds:746,956,181,264
+rotate:90
+stars
+bounds:2,561,429,372

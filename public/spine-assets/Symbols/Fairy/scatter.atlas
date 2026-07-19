@@ -1,0 +1,163 @@
+scatter.png
+size:2048,2048
+filter:Linear,Linear
+pma:true
+scale:0.83
+Body Parts/Big_butterfly
+bounds:1817,917,198,131
+Body Parts/Right_hand
+bounds:1774,761,144,154
+Body Parts/Wings_1
+bounds:2,919,390,512
+Body Parts/Wings_2
+bounds:512,1502,291,544
+Body Parts/back_left_hand
+bounds:1817,1050,187,318
+Body Parts/body
+bounds:2,1433,508,613
+Body Parts/earring
+bounds:2005,2007,10,39
+Body Parts/face
+bounds:681,35,205,203
+Body Parts/hair_1
+bounds:1483,172,132,292
+Body Parts/hair_2
+bounds:1617,210,115,270
+Body Parts/hair_up
+bounds:402,6,277,232
+Body Parts/left_eyeball
+bounds:1596,150,19,20
+Body Parts/left_eyelid
+bounds:681,2,44,31
+Body Parts/left_hand
+bounds:1093,105,107,133
+Body Parts/right_eyeball
+bounds:586,1085,22,20
+Body Parts/right_eyelid
+bounds:512,1433,48,32
+Body Parts/top_right hand
+bounds:394,1107,221,324
+Body Parts/upper_left_hand
+bounds:1602,482,181,162
+Body Parts/upper_right hand
+bounds:1602,646,170,270
+Left_Butterfly_01_0/Left_Butterfly_01_0_00
+bounds:1093,41,63,62
+Left_Butterfly_01_0/Left_Butterfly_01_0_01
+bounds:1920,853,63,62
+Left_Butterfly_01_0/Left_Butterfly_01_0_02
+bounds:1305,39,63,62
+Left_Butterfly_01_0/Left_Butterfly_01_0_03
+bounds:1920,789,63,62
+Pixie Dust
+bounds:394,924,190,181
+Wild
+bounds:888,35,203,203
+leaves
+bounds:1202,103,245,75
+scatter_seq/0
+bounds:512,1467,145,33
+scatter_seq/1
+bounds:1774,726,145,33
+scatter_seq/10
+bounds:1774,691,145,33
+scatter_seq/11
+bounds:1774,656,145,33
+scatter_seq/12
+bounds:1785,621,145,33
+scatter_seq/13
+bounds:1785,586,145,33
+scatter_seq/14
+bounds:1785,551,145,33
+scatter_seq/15
+bounds:1785,516,145,33
+scatter_seq/16
+bounds:1785,481,145,33
+scatter_seq/17
+bounds:1617,175,145,33
+scatter_seq/18
+bounds:1617,140,145,33
+scatter_seq/19
+bounds:1449,137,145,33
+scatter_seq/2
+bounds:1449,102,145,33
+scatter_seq/20
+bounds:1596,105,145,33
+scatter_seq/21
+bounds:1596,70,145,33
+scatter_seq/22
+bounds:1734,446,145,33
+scatter_seq/23
+bounds:1734,411,145,33
+scatter_seq/3
+bounds:1734,376,145,33
+scatter_seq/4
+bounds:1734,341,145,33
+scatter_seq/5
+bounds:1734,306,145,33
+scatter_seq/6
+bounds:1734,271,145,33
+scatter_seq/7
+bounds:1734,236,145,33
+scatter_seq/8
+bounds:1158,68,145,33
+scatter_seq/9
+bounds:1158,33,145,33
+sparkle/sparkle_00
+bounds:805,1822,398,224
+sparkle/sparkle_01
+bounds:805,1596,398,224
+sparkle/sparkle_02
+bounds:1205,1822,398,224
+sparkle/sparkle_03
+bounds:1205,1596,398,224
+sparkle/sparkle_04
+bounds:1605,1822,398,224
+sparkle/sparkle_05
+bounds:1605,1596,398,224
+sparkle/sparkle_06
+bounds:2,693,398,224
+sparkle/sparkle_07
+bounds:2,467,398,224
+sparkle/sparkle_08
+bounds:2,241,398,224
+sparkle/sparkle_09
+bounds:2,15,398,224
+sparkle/sparkle_10
+bounds:805,1370,398,224
+sparkle/sparkle_11
+bounds:1205,1370,398,224
+sparkle/sparkle_12
+bounds:1605,1370,398,224
+sparkle/sparkle_13
+bounds:617,1144,398,224
+sparkle/sparkle_14
+bounds:1017,1144,398,224
+sparkle/sparkle_15
+bounds:1417,1144,398,224
+sparkle/sparkle_16
+bounds:617,918,398,224
+sparkle/sparkle_17
+bounds:1017,918,398,224
+sparkle/sparkle_18
+bounds:1417,918,398,224
+sparkle/sparkle_19
+bounds:402,692,398,224
+sparkle/sparkle_20
+bounds:402,466,398,224
+sparkle/sparkle_21
+bounds:802,692,398,224
+sparkle/sparkle_22
+bounds:402,240,398,224
+sparkle/sparkle_23
+bounds:802,466,398,224
+sparkle/sparkle_24
+bounds:1202,692,398,224
+sparkle/sparkle_25
+bounds:802,240,398,224
+sparkle/sparkle_26
+bounds:1202,466,398,224
+w_blur
+bounds:1202,180,279,284
+wild copy
+bounds:1764,201,145,33

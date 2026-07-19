@@ -1,0 +1,27 @@
+new_game.png
+size:352,142
+filter:Linear,Linear
+pma:true
+Arrow
+bounds:294,45,40,30
+rotate:90
+Base
+bounds:2,4,136,135
+rotate:90
+Chip1
+bounds:324,93,47,24
+rotate:90
+Chip2
+bounds:326,44,47,24
+rotate:90
+Chip3
+bounds:294,87,53,28
+rotate:90
+Disable
+bounds:139,4,136,135
+rotate:90
+NEW GAME
+bounds:276,40,100,16
+rotate:90
+NUEVO JUEGO
+bounds:276,2,64,36

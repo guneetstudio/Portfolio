@@ -1,11 +1,18 @@
-import { copyFile, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const sourceRoot = "/Users/guneet/SpinePortfolioExports";
 const projectRoot = process.cwd();
 const publicAssetsRoot = path.join(projectRoot, "public", "spine-assets");
 const outputFile = path.join(projectRoot, "src", "data", "portfolioItems.generated.ts");
 const assetExtensions = new Set([".json", ".atlas", ".png", ".webp"]);
+const folderDefinitions = [
+  { label: "Symbols", folder: "Symbols" },
+  { label: "Background", folder: "Background" },
+  { label: "Transitions", folder: "Transition" },
+  { label: "Popups", folder: "Popups" },
+  { label: "Anticipation", folder: "Anticipation" },
+  { label: "UI Buttons", folder: "UI Buttons" },
+];
 const thumbnailPriority = [
   "thumbnail.webp",
   "thumbnail.png",
@@ -15,37 +22,21 @@ const thumbnailPriority = [
   "preview.png",
 ];
 
-const categoryByFolder = new Map([
-  ["Dog", "Character Animation"],
-  ["Dolphin", "Character Animation"],
-  ["Dragon", "Character Animation"],
-  ["Hamster", "Character Animation"],
-  ["Hedgehog", "Character Animation"],
-  ["LadyWaitress", "Character Animation"],
-  ["DiamondScatter", "Symbol Animation"],
-  ["RedScatter", "Symbol Animation"],
-  ["ScatterChef", "Symbol Animation"],
-  ["DolphinTransition", "Transition Animation"],
-  ["Bag", "Feature Asset / Prop"],
-  ["Envelope", "Feature Asset / Prop"],
-  ["Lamp", "Feature Asset / Prop"],
-  ["Butterfly", "VFX / Character Motion"],
-]);
-
 function sortByName(a, b) {
   return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
 }
 
-function toTitle(folderName) {
-  return folderName
+function toTitle(value) {
+  return value
     .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
     .replace(/[_-]+/g, " ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim()
+    .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-function toId(folderName) {
-  return folderName
+function toId(value) {
+  return value
     .trim()
     .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
     .replace(/[^a-zA-Z0-9]+/g, "-")
@@ -53,8 +44,8 @@ function toId(folderName) {
     .toLowerCase();
 }
 
-function assetPath(folderName, fileName) {
-  return `/spine-assets/${encodeURIComponent(folderName)}/${encodeURIComponent(fileName)}`;
+function assetPath(...segments) {
+  return `/spine-assets/${segments.map((segment) => encodeURIComponent(segment)).join("/")}`;
 }
 
 function findThumbnail(files) {
@@ -83,90 +74,9 @@ function parseAtlasPages(atlasText) {
   return pages;
 }
 
-async function readAtlasPages(atlasPath) {
-  try {
-    return parseAtlasPages(await readFile(atlasPath, "utf8"));
-  } catch {
-    return [];
-  }
-}
-
-function guessCategory(folderName, animations) {
-  if (categoryByFolder.has(folderName)) {
-    return categoryByFolder.get(folderName);
-  }
-
-  const haystack = `${folderName} ${animations.join(" ")}`.toLowerCase();
-  if (haystack.includes("transition")) return "Transition Animation";
-  if (haystack.includes("scatter") || haystack.includes("symbol")) return "Symbol Animation";
-  if (haystack.includes("wild") || haystack.includes("hunter") || haystack.includes("santa") || haystack.includes("snowman") || haystack.includes("owl")) {
-    return "Character Animation";
-  }
-  if (haystack.includes("burst") || haystack.includes("multiplier")) return "VFX / Feature Animation";
-  if (haystack.includes("slot") || haystack.includes("wheel") || haystack.includes("royal") || haystack.includes("chocolate") || haystack.includes("lollipop")) {
-    return "Feature Asset / Prop";
-  }
-
-  return "Spine Animation";
-}
-
-function descriptionFor(folderName, category) {
-  const title = toTitle(folderName);
-
-  if (folderName === "Dog") {
-    return "Character animation with readable Spine motion and casino-game timing.";
-  }
-  if (folderName === "Dolphin") {
-    return "Smooth character motion focused on playful timing and clean Spine playback.";
-  }
-  if (folderName === "DiamondScatter") {
-    return "Scatter symbol animation built for strong visual readability and slot-game impact.";
-  }
-  if (folderName === "Bag") {
-    return "Feature prop animation with crisp timing and polished game-ready presentation.";
-  }
-
-  switch (category) {
-    case "Character Animation":
-      return `${title} character animation with clean Spine timing and game-ready motion.`;
-    case "Symbol Animation":
-      return `${title} symbol animation focused on slot-game readability and impact.`;
-    case "Transition Animation":
-      return `${title} transition animation with crisp timing and polished motion.`;
-    case "Feature Asset / Prop":
-      return `${title} feature asset animation with clean timing and presentation.`;
-    case "VFX / Character Motion":
-      return `${title} motion with light VFX energy and clean Spine playback.`;
-    case "VFX / Feature Animation":
-      return `${title} feature animation with punchy VFX timing and game-ready impact.`;
-    default:
-      return `${title} Spine animation prepared for game-ready portfolio presentation.`;
-  }
-}
-
-function tagsFor(category) {
-  switch (category) {
-    case "Character Animation":
-      return ["Spine 2D", "Character", "Game Ready"];
-    case "Symbol Animation":
-      return ["Spine 2D", "Symbol", "Game Ready"];
-    case "Transition Animation":
-      return ["Spine 2D", "Transition", "VFX", "Game Ready"];
-    case "Feature Asset / Prop":
-      return ["Spine 2D", "Feature Asset", "Game Ready"];
-    case "VFX / Character Motion":
-      return ["Spine 2D", "Character", "VFX", "Game Ready"];
-    case "VFX / Feature Animation":
-      return ["Spine 2D", "Feature Asset", "VFX", "Game Ready"];
-    default:
-      return ["Spine 2D", "Game Ready"];
-  }
-}
-
 async function readAnimations(jsonPath) {
   try {
-    const raw = await readFile(jsonPath, "utf8");
-    const parsed = JSON.parse(raw);
+    const parsed = JSON.parse(await readFile(jsonPath, "utf8"));
     if (parsed.animations && typeof parsed.animations === "object" && !Array.isArray(parsed.animations)) {
       return Object.keys(parsed.animations).sort(sortByName);
     }
@@ -177,11 +87,48 @@ async function readAnimations(jsonPath) {
   return [];
 }
 
+async function readAssetFiles(folderPath) {
+  const entries = await readdir(folderPath, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((fileName) => assetExtensions.has(path.extname(fileName).toLowerCase()))
+    .sort(sortByName);
+}
+
+function categoryFor(displayFolder) {
+  switch (displayFolder) {
+    case "Symbols":
+      return "Symbol Animation";
+    case "Popups":
+      return "Popup Animation";
+    case "Anticipation":
+      return "Anticipation Animation";
+    case "Transition":
+      return "Transition Animation";
+    case "Background":
+      return "Background Animation";
+    case "UI Buttons":
+      return "UI Animation";
+    default:
+      return "Spine Animation";
+  }
+}
+
+function tagsFor(displayFolder) {
+  return ["Spine 2D", displayFolder, "Game Ready"];
+}
+
 function formatTs(items) {
-  const header = `export type PortfolioItem = {
+  const header = `export const portfolioDisplayFolders = ${JSON.stringify(folderDefinitions)} as const;
+
+export type DisplayFolder = (typeof portfolioDisplayFolders)[number]["folder"];
+
+export type PortfolioItem = {
   id: string;
   title: string;
   sourceFolderName: string;
+  displayFolder: DisplayFolder;
   category: string;
   description: string;
   tags: string[];
@@ -199,117 +146,161 @@ function formatTs(items) {
   return `${header}export const portfolioItems: PortfolioItem[] = ${JSON.stringify(items, null, 2)};\n`;
 }
 
-async function main() {
-  const warnings = [];
-  const sourceEntries = await readdir(sourceRoot, { withFileTypes: true });
-  const folders = sourceEntries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort(sortByName);
+async function createItemsFromFolder({
+  displayFolder,
+  itemFolderName,
+  folderPath,
+  urlSegments,
+  bundleStem = null,
+  warnings,
+}) {
+  const files = await readAssetFiles(folderPath);
+  const thumbnailFile = findThumbnail(files);
+  const atlasesByStem = new Map(
+    files
+      .filter((fileName) => path.extname(fileName).toLowerCase() === ".atlas")
+      .map((fileName) => [path.parse(fileName).name.toLowerCase(), fileName]),
+  );
+  const jsonFiles = files.filter(
+    (fileName) =>
+      path.extname(fileName).toLowerCase() === ".json" &&
+      (!bundleStem || path.parse(fileName).name.toLowerCase() === bundleStem.toLowerCase()),
+  );
+  const completeBundles = jsonFiles
+    .map((jsonFile) => ({
+      jsonFile,
+      stem: path.parse(jsonFile).name,
+      atlasFile: atlasesByStem.get(path.parse(jsonFile).name.toLowerCase()) ?? null,
+    }))
+    .filter((bundle) => {
+      if (bundle.atlasFile) return true;
+      warnings.push(
+        `${[displayFolder, ...urlSegments, bundle.jsonFile].join("/")}: missing matching atlas file`,
+      );
+      return false;
+    })
+    .sort((a, b) => sortByName(a.stem, b.stem));
 
-  await mkdir(publicAssetsRoot, { recursive: true });
-
+  const multipleBundles = completeBundles.length > 1;
+  const filesByLowerName = new Map(files.map((fileName) => [fileName.toLowerCase(), fileName]));
   const items = [];
-  const summary = {
-    foldersDetected: folders.length,
-    itemsGenerated: 0,
-    foldersWithJson: [],
-    foldersWithAtlas: [],
-    foldersWithPng: [],
-    foldersWithWebp: [],
-    foldersWithThumbnail: [],
-    foldersWithAnimations: [],
-  };
 
-  for (const folderName of folders) {
-    const folderPath = path.join(sourceRoot, folderName);
-    const targetFolder = path.join(publicAssetsRoot, folderName);
-    const entries = await readdir(folderPath, { withFileTypes: true });
-    const files = entries
-      .filter((entry) => entry.isFile())
-      .map((entry) => entry.name)
-      .filter((fileName) => assetExtensions.has(path.extname(fileName).toLowerCase()))
-      .sort(sortByName);
-
-    const jsonFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".json");
-    const atlasFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".atlas");
-    const pngFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".png");
-    const webpFiles = files.filter((fileName) => path.extname(fileName).toLowerCase() === ".webp");
-    const thumbnailFile = findThumbnail(files);
-    const jsonFile = jsonFiles[0] ?? null;
-    const atlasFile = atlasFiles[0] ?? null;
-    const textureCandidates = [...pngFiles, ...webpFiles]
-      .filter((fileName) => fileName !== thumbnailFile)
-      .sort(sortByName);
-    let textureFiles = textureCandidates;
-    let animations = [];
-
-    if (jsonFile) {
-      const animationResult = await readAnimations(path.join(folderPath, jsonFile));
-      if (Array.isArray(animationResult)) {
-        animations = animationResult;
-      } else {
-        warnings.push(`${folderName}: could not read animations from ${jsonFile}: ${animationResult.error}`);
-      }
-    }
-
-    if (atlasFile) {
-      const atlasPages = await readAtlasPages(path.join(folderPath, atlasFile));
-      if (atlasPages.length > 0) {
-        const filesByName = new Map(files.map((fileName) => [fileName, fileName]));
-        textureFiles = atlasPages
-          .map((pageName) => filesByName.get(pageName))
-          .filter(Boolean);
-
-        const missingPages = atlasPages.filter((pageName) => !filesByName.has(pageName));
-        if (missingPages.length > 0) {
-          warnings.push(`${folderName}: atlas references missing texture pages: ${missingPages.join(", ")}`);
-        }
-      }
-    }
-
-    if (!jsonFile) warnings.push(`${folderName}: missing Spine JSON file`);
-    if (!atlasFile) warnings.push(`${folderName}: missing atlas file`);
-    if (textureFiles.length === 0) warnings.push(`${folderName}: missing PNG/WebP texture files`);
-
-    await rm(targetFolder, { recursive: true, force: true });
-    await mkdir(targetFolder, { recursive: true });
-
-    const filesToCopy = new Set(
-      [jsonFile, atlasFile, thumbnailFile, ...textureFiles].filter(Boolean),
+  for (const bundle of completeBundles) {
+    const atlasText = await readFile(path.join(folderPath, bundle.atlasFile), "utf8");
+    const atlasPages = parseAtlasPages(atlasText);
+    const textureFiles = atlasPages
+      .map((pageName) => filesByLowerName.get(pageName.toLowerCase()))
+      .filter(Boolean);
+    const missingPages = atlasPages.filter(
+      (pageName) => !filesByLowerName.has(pageName.toLowerCase()),
     );
 
-    for (const fileName of filesToCopy) {
-      await copyFile(path.join(folderPath, fileName), path.join(targetFolder, fileName));
+    if (missingPages.length > 0) {
+      warnings.push(
+        `${[displayFolder, ...urlSegments, bundle.atlasFile].join("/")}: missing texture pages ${missingPages.join(", ")}`,
+      );
+    }
+    if (textureFiles.length === 0) {
+      warnings.push(
+        `${[displayFolder, ...urlSegments, bundle.atlasFile].join("/")}: no atlas texture pages detected`,
+      );
     }
 
-    if (jsonFile) summary.foldersWithJson.push(folderName);
-    if (atlasFile) summary.foldersWithAtlas.push(folderName);
-    if (pngFiles.length > 0) summary.foldersWithPng.push(folderName);
-    if (webpFiles.length > 0) summary.foldersWithWebp.push(folderName);
-    if (thumbnailFile) summary.foldersWithThumbnail.push(folderName);
-    if (animations.length > 0) summary.foldersWithAnimations.push(folderName);
+    const animationResult = await readAnimations(path.join(folderPath, bundle.jsonFile));
+    const animations = Array.isArray(animationResult) ? animationResult : [];
+    if (!Array.isArray(animationResult)) {
+      warnings.push(
+        `${[displayFolder, ...urlSegments, bundle.jsonFile].join("/")}: ${animationResult.error}`,
+      );
+    }
 
-    const category = guessCategory(folderName, animations);
+    const itemTitle = multipleBundles
+      ? `${toTitle(itemFolderName)} ${toTitle(bundle.stem)}`
+      : toTitle(itemFolderName);
+    const qualifiedName = multipleBundles
+      ? `${displayFolder}-${itemFolderName}-${bundle.stem}`
+      : `${displayFolder}-${itemFolderName}`;
 
     items.push({
-      id: toId(folderName),
-      title: toTitle(folderName),
-      sourceFolderName: folderName,
-      category,
-      description: descriptionFor(folderName, category),
-      tags: tagsFor(category),
+      id: toId(qualifiedName),
+      title: itemTitle,
+      sourceFolderName: itemFolderName,
+      displayFolder,
+      category: categoryFor(displayFolder),
+      description: `${itemTitle} Spine animation prepared for game-ready portfolio presentation.`,
+      tags: tagsFor(displayFolder),
       spine: {
-        json: jsonFile ? assetPath(folderName, jsonFile) : null,
-        atlas: atlasFile ? assetPath(folderName, atlasFile) : null,
-        textures: textureFiles.map((fileName) => assetPath(folderName, fileName)),
+        json: assetPath(displayFolder, ...urlSegments, bundle.jsonFile),
+        atlas: assetPath(displayFolder, ...urlSegments, bundle.atlasFile),
+        textures: textureFiles.map((fileName) =>
+          assetPath(displayFolder, ...urlSegments, fileName),
+        ),
       },
-      thumbnail: thumbnailFile ? assetPath(folderName, thumbnailFile) : null,
+      thumbnail: thumbnailFile
+        ? assetPath(displayFolder, ...urlSegments, thumbnailFile)
+        : null,
       animations,
     });
   }
 
-  summary.itemsGenerated = items.length;
+  return items;
+}
+
+async function main() {
+  const warnings = [];
+  const items = [];
+  const itemsByDisplayFolder = {};
+
+  for (const { folder: displayFolder } of folderDefinitions) {
+    const displayFolderPath = path.join(publicAssetsRoot, displayFolder);
+    const entries = await readdir(displayFolderPath, { withFileTypes: true });
+    const itemFolders = entries
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .sort(sortByName);
+    const folderItems = [];
+
+    for (const itemFolderName of itemFolders) {
+      folderItems.push(
+        ...(await createItemsFromFolder({
+          displayFolder,
+          itemFolderName,
+          folderPath: path.join(displayFolderPath, itemFolderName),
+          urlSegments: [itemFolderName],
+          warnings,
+        })),
+      );
+    }
+
+    const looseFiles = await readAssetFiles(displayFolderPath);
+    const looseJsonFiles = looseFiles.filter(
+      (fileName) => path.extname(fileName).toLowerCase() === ".json",
+    );
+    for (const jsonFile of looseJsonFiles) {
+      const bundleName = path.parse(jsonFile).name;
+      folderItems.push(
+        ...(await createItemsFromFolder({
+          displayFolder,
+          itemFolderName: bundleName,
+          folderPath: displayFolderPath,
+          urlSegments: [],
+          bundleStem: bundleName,
+          warnings,
+        })),
+      );
+    }
+
+    const uniqueFolderItems = [...new Map(folderItems.map((item) => [item.id, item])).values()];
+    itemsByDisplayFolder[displayFolder] = uniqueFolderItems.length;
+    items.push(...uniqueFolderItems);
+  }
+
+  const duplicateIds = items
+    .map((item) => item.id)
+    .filter((id, index, allIds) => allIds.indexOf(id) !== index);
+  if (duplicateIds.length > 0) {
+    throw new Error(`Duplicate generated portfolio IDs: ${[...new Set(duplicateIds)].join(", ")}`);
+  }
 
   await writeFile(outputFile, formatTs(items), "utf8");
 
@@ -317,7 +308,18 @@ async function main() {
     console.warn(`Warning: ${warning}`);
   }
 
-  console.log(JSON.stringify({ ...summary, warnings }, null, 2));
+  console.log(
+    JSON.stringify(
+      {
+        folderDefinitions,
+        itemsGenerated: items.length,
+        itemsByDisplayFolder,
+        warnings,
+      },
+      null,
+      2,
+    ),
+  );
 }
 
 main().catch((error) => {
