@@ -631,30 +631,6 @@ export const portfolioItems: PortfolioItem[] = [
     ]
   },
   {
-    "id": "symbols-owl",
-    "title": "Owl",
-    "sourceFolderName": "Owl",
-    "displayFolder": "Symbols",
-    "category": "Symbol Animation",
-    "description": "Owl Spine animation prepared for game-ready portfolio presentation.",
-    "tags": [
-      "Spine 2D",
-      "Symbols",
-      "Game Ready"
-    ],
-    "spine": {
-      "json": "/spine-assets/Symbols/Owl/OwlReel.json",
-      "atlas": "/spine-assets/Symbols/Owl/OwlReel.atlas",
-      "textures": [
-        "/spine-assets/Symbols/Owl/OwlReel.png"
-      ]
-    },
-    "thumbnail": "/spine-assets/Symbols/Owl/thumbnail.webp",
-    "animations": [
-      "3Idle"
-    ]
-  },
-  {
     "id": "symbols-parrot",
     "title": "Parrot",
     "sourceFolderName": "Parrot",
@@ -724,30 +700,6 @@ export const portfolioItems: PortfolioItem[] = [
     "thumbnail": "/spine-assets/Symbols/Pug/thumbnail.webp",
     "animations": [
       "wild"
-    ]
-  },
-  {
-    "id": "symbols-red-scatter",
-    "title": "Red Scatter",
-    "sourceFolderName": "RedScatter",
-    "displayFolder": "Symbols",
-    "category": "Symbol Animation",
-    "description": "Red Scatter Spine animation prepared for game-ready portfolio presentation.",
-    "tags": [
-      "Spine 2D",
-      "Symbols",
-      "Game Ready"
-    ],
-    "spine": {
-      "json": "/spine-assets/Symbols/RedScatter/BlueScatter.json",
-      "atlas": "/spine-assets/Symbols/RedScatter/BlueScatter.atlas",
-      "textures": [
-        "/spine-assets/Symbols/RedScatter/BlueScatter.png"
-      ]
-    },
-    "thumbnail": "/spine-assets/Symbols/RedScatter/thumbnail.webp",
-    "animations": [
-      "Win2"
     ]
   },
   {
@@ -918,30 +870,6 @@ export const portfolioItems: PortfolioItem[] = [
       ]
     },
     "thumbnail": "/spine-assets/Symbols/WildHunter/thumbnail.webp",
-    "animations": [
-      "win"
-    ]
-  },
-  {
-    "id": "symbols-zeus",
-    "title": "Zeus",
-    "sourceFolderName": "Zeus",
-    "displayFolder": "Symbols",
-    "category": "Symbol Animation",
-    "description": "Zeus Spine animation prepared for game-ready portfolio presentation.",
-    "tags": [
-      "Spine 2D",
-      "Symbols",
-      "Game Ready"
-    ],
-    "spine": {
-      "json": "/spine-assets/Symbols/Zeus/H1.json",
-      "atlas": "/spine-assets/Symbols/Zeus/H1.atlas",
-      "textures": [
-        "/spine-assets/Symbols/Zeus/H1.png"
-      ]
-    },
-    "thumbnail": "/spine-assets/Symbols/Zeus/thumbnail.webp",
     "animations": [
       "win"
     ]

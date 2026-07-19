@@ -1834,8 +1834,18 @@ body.modal-open {
 
 h1 {
   max-width: 11ch;
-  margin-bottom: 8px;
   font-size: clamp(2.75rem, 14vw, 4rem);
+}
+
+.hero-title-stage {
+  display: block;
+  width: fit-content;
+  margin-bottom: clamp(14px, 1.6vw, 20px);
+}
+
+.hero-title {
+  margin-bottom: 0;
+  line-height: 0.94;
 }
 
 h2 {
@@ -1844,9 +1854,11 @@ h2 {
 
 .hero-role {
   max-width: 19rem;
+  margin-top: 0;
   margin-bottom: 10px;
   color: #ff9a1f;
   font-size: 1rem;
+  line-height: 1.35;
 }
 
 .hero-copy {
