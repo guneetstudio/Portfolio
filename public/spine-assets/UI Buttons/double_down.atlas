@@ -1,0 +1,18 @@
+double_down.png
+size:140,347
+filter:Linear,Linear
+pma:true
+DOBLE APUESTA
+bounds:43,313,85,32
+DOUBLE DOWN
+bounds:2,279,76,32
+Disable
+bounds:2,139,136,135
+Rectangle 3
+bounds:2,2,136,135
+arrow
+bounds:2,316,39,29
+chips 1
+bounds:80,276,56,35
+chips 2
+bounds:80,276,56,35

@@ -1,0 +1,26 @@
+rebet_deal.png
+size:439,141
+filter:Linear,Linear
+pma:true
+AS copy 6
+bounds:360,2,77,57
+AS copy 7
+bounds:328,61,78,57
+rotate:90
+Base
+bounds:2,3,136,135
+rotate:90
+REAPUESTA Y TRATA
+bounds:294,38,101,32
+rotate:90
+REBET & DEAL
+bounds:276,31,108,16
+rotate:90
+chips
+bounds:294,2,64,34
+disable_base
+bounds:139,3,136,135
+rotate:90
+disable_chips
+bounds:387,75,64,34
+rotate:90
