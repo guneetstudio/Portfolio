@@ -26,6 +26,11 @@ const filters: WorkFilter[] = [
 
 const showWorkFilters = false;
 
+// Temporarily hide the UI Buttons portfolio category. Remove this filter to restore it.
+const visiblePortfolioDisplayFolders = portfolioDisplayFolders.filter(
+  ({ folder }) => folder !== "UI Buttons",
+);
+
 const SpinePreview = lazy(async () => {
   const module = await import("../components/SpinePreview");
   return { default: module.SpinePreview };
@@ -179,7 +184,7 @@ export function SelectedWork() {
         className="work-folder-selector section-reveal"
         role="group"
       >
-        {portfolioDisplayFolders.map((folderOption) => (
+        {visiblePortfolioDisplayFolders.map((folderOption) => (
           <button
             aria-pressed={folderOption.folder === activeDisplayFolder}
             className="filter-chip"
